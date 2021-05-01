@@ -15,6 +15,11 @@ void Application::setup()
 void Application::draw()
 {
   
+  ofDisableAlphaBlending();
+  ofEnableDepthTest();
+  ofEnableSmoothing();
+  ofEnableAntiAliasing();
+
   renderer.draw();
   //---m_instance_Imported --> parcour du vector d'images afin de l'afficher et d'afficher la zone de selection autour.<--
     for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
@@ -27,6 +32,13 @@ void Application::draw()
         m_instance_Imported.erase(m_instance_Imported.begin() + i);
       }
     }
+
+  renderer.draw();
+
+  ofEnableAlphaBlending();
+  ofDisableDepthTest();
+  ofDisableSmoothing();
+  ofDisableAntiAliasing();
 
 }
 void Application::update()
