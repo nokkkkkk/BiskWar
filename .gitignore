@@ -1,4 +1,5 @@
 
 *.log
-BiskWar_debug
+
+/bin/BiskWar_debug
 uLavalVSOpenGLSolution.vcxproj.FileListAbsolute.txt
