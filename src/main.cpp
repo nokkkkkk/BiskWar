@@ -24,7 +24,4 @@ int main()
   // démarrer l'exécution de l'application
   ofRunApp(new Application());
 
-// Old stuff
-  // ofSetupOpenGL(1280, 1024, OF_WINDOW);
-  // ofRunApp(new Application());
 }
