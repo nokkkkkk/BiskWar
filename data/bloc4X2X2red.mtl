@@ -1,0 +1,13 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl 10596_Modular_Building_Blocks.002
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588200 0.588200 0.588200
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd /home/guillaume/ULAVAL/Info/OF/apps/myApps/uLavalVSOpenGLSolution/bin/data/objimg/blocs/10596_Modular_Building_Blocks_SG_v1_diffuse.jpg
