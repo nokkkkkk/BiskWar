@@ -1,6 +1,6 @@
 obj/linux64/Debug/src/Outil_dessin.o: \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.cpp \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.cpp \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/utils/ofConstants.h \
  /home/guillaume/ULAVAL/OF/libs/tess2/include/tesselator.h \
@@ -560,7 +560,7 @@ obj/linux64/Debug/src/Outil_dessin.o: \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h:
 
 /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h:
 

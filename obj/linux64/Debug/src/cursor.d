@@ -1,6 +1,6 @@
 obj/linux64/Debug/src/cursor.o: \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cursor.cpp \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cursor.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cursor.cpp \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cursor.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/utils/ofConstants.h \
  /home/guillaume/ULAVAL/OF/libs/tess2/include/tesselator.h \
@@ -559,18 +559,18 @@ obj/linux64/Debug/src/cursor.o: \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/of3dUtils.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/renderer.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/import_img.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Instance_Imported.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/import_obj.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/renderer.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/import_img.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Instance_Imported.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/import_obj.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/drawPrim.h
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/drawPrim.h
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cursor.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cursor.h:
 
 /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h:
 
@@ -1722,15 +1722,15 @@ obj/linux64/Debug/src/cursor.o: \
 
 /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/renderer.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/renderer.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/import_img.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/import_img.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Instance_Imported.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Instance_Imported.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/import_obj.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/import_obj.h:
 
 /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h:
 
@@ -1740,4 +1740,4 @@ obj/linux64/Debug/src/cursor.o: \
 
 /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/drawPrim.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/drawPrim.h:

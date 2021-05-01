@@ -1,6 +1,6 @@
 obj/linux64/Debug/src/cubeMap.o: \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cubeMap.cpp \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cubeMap.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cubeMap.cpp \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cubeMap.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/utils/ofConstants.h \
  /home/guillaume/ULAVAL/OF/libs/tess2/include/tesselator.h \
@@ -559,10 +559,10 @@ obj/linux64/Debug/src/cubeMap.o: \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/of3dUtils.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Instance_Imported.h
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Instance_Imported.h
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/cubeMap.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/cubeMap.h:
 
 /home/guillaume/ULAVAL/OF/libs/openFrameworks/ofMain.h:
 
@@ -1714,6 +1714,6 @@ obj/linux64/Debug/src/cubeMap.o: \
 
 /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Outil_dessin.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Outil_dessin.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/bloclife/src/Instance_Imported.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BiskWar/src/Instance_Imported.h:
