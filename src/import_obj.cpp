@@ -34,7 +34,7 @@ namespace objects_in_scene
     m_random_rotation = ofRandom(3000);
     m_lego_lock = false;
     m_enable_materiel = true;
-    m_enable_texture = false;
+    m_enable_texture = true;
 
 
     string path;
@@ -56,10 +56,6 @@ namespace objects_in_scene
     if (m_path_fichier_img.bSuccess || m_path_name != "") //Si l'ouverture du fichier est un succès:
     {
       m_objectImport.loadModel(path);
-      // m_objectImport.calculateDimensions();
-
-      //DÉBUT gestion de l'acquisition des sommets
-      //Convert du path en char*
       int n = path.length();
       char path_char[n + 1];
       strcpy(path_char, path.c_str());
@@ -120,8 +116,7 @@ namespace objects_in_scene
         // shader actif au lancement de la scène
         m_index_shader_select = 3;
         m_index_texture_select = 0;
-        ofLoadImage(m_texture,"../../data/bloc-life.png");
-        ofLoadImage(m_normal_map,"../../data/briqueNMAP.png");
+        ofLoadImage(m_texture,"../../data/textures/bloc-life.png");
 
 
   // configurer le matériau Shiny

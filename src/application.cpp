@@ -113,7 +113,11 @@ void Application::mousePressed(int x, int y, int button)
 
 // fonction appelee quand un bouton d'un peripherique de pointage est relâche
 void Application::mouseReleased(int x, int y, int button)
-{
+{ 
+  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
+  {
+    m_instance_Imported[i]->resetMouse(x, y, button);
+  }
 
 }
 
