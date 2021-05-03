@@ -6,11 +6,9 @@
 
 namespace objects_in_scene
 {
-
   /**
  * \brief Constructeur par défaut.
 */
-
   Import_obj::Import_obj() : Instance_Imported()
   {
   }
@@ -32,11 +30,7 @@ namespace objects_in_scene
     m_toggle_z_rotation = false;
     m_obj_du_menu = p_obj_du_menu;
     m_random_rotation = ofRandom(3000);
-    m_lego_lock = false;
-    m_enable_materiel = true;
     m_enable_texture = true;
-
-
     string path;
     
     if (p_path == "") //Affiche et prélève le path de l'image à importer ou hardcodé selon le cas.
@@ -92,29 +86,6 @@ namespace objects_in_scene
         m_width_img = m_original_m_width_img = (m_model_max_x - m_model_min_x) * m_scaling.x * 0.25; //on enregistre la taille en widht et height + on copie un original qui sert à la redimension.
         m_height_img = m_original_m_height_img = (m_model_max_y - m_model_min_y) * m_scaling.y * 0.25;
 
-        // charger, compiler et linker les sources des shaders
-        m_shaders_illum[0].load(
-          "shaderillum/color_fill_330_vs.glsl",
-          "shaderillum/color_fill_330_fs.glsl");
-
-        m_shaders_illum[1].load(
-          "shaderillum/lambert_330_vs.glsl",
-          "shaderillum/lambert_330_fs.glsl");
-
-        m_shaders_illum[2].load(
-          "shaderillum/gouraud_330_vs.glsl",
-          "shaderillum/gouraud_330_fs.glsl");
-
-        m_shaders_illum[3].load(
-          "shaderillum/phong_330_vs.glsl",
-          "shaderillum/phong_330_fs.glsl");
-
-        m_shaders_illum[4].load(
-          "shaderillum/blinn_phong_330_vs.glsl",
-          "shaderillum/blinn_phong_330_fs.glsl");
-
-        // shader actif au lancement de la scène
-        m_index_shader_select = 3;
         m_index_texture_select = 0;
         ofLoadImage(m_texture,"../../data/textures/bloc-life.png");
 
@@ -147,7 +118,6 @@ namespace objects_in_scene
   m_materiel_lego[3].setSpecularColor(ofColor(200, 200, 200));
   m_materiel_lego[3].setShininess(20.0f);
 
-  m_choi_materiau = -1;
   m__nb_light_dynamic = 2;
   m_light.setPosition(0, 0, 0);
   m_light.setOrientation(ofVec3f(0,0,0));
@@ -186,77 +156,8 @@ namespace objects_in_scene
   void Import_obj::show_obj()
   {
 
-     // passer les attributs uniformes au shader de sommets
-  switch (m_index_shader_select)
-  {
-    case -1:
-      break;
-    case 0:
-      m_shader = &m_shaders_illum[0];
-      m_shader->begin();
-      m_shader->setUniform3f("color", m_fill_colorN.x, m_fill_colorN.y, m_fill_colorN.z);
-      m_shader->end();
-      break;
-
-    case 1:
-      m_shader = &m_shaders_illum[1];
-      m_shader->begin();
-      m_shader->setUniform3f("color_ambient", m_fill_colorN.x, m_fill_colorN.y, m_fill_colorN.z);
-      m_shader->setUniform3f("color_diffuse",  0.4f, 0.4f, 0.4f);
-      m_shader->setUniform3f("light_position", glm::vec4(m_light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-      m_shader->end();
-      break;
-
-    case 2:
-      m_shader = &m_shaders_illum[2];
-      m_shader->begin();
-      m_shader->setUniform3f("color_ambient", m_fill_colorN.x, m_fill_colorN.y, m_fill_colorN.z);
-      m_shader->setUniform3f("color_diffuse",  0.4f, 0.4f, 0.4f);
-      m_shader->setUniform3f("color_specular", 0.3f, 0.3f, 0.1f);
-      m_shader->setUniform1f("brightness", 1.0f);
-      m_shader->setUniform3f("light_position", glm::vec4(m_light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-      m_shader->end();
-      break;
-//PHONG
-    case 3:
-      m_shader = &m_shaders_illum[3];
-      m_shader->begin();
-      m_shader->setUniform3f("color_ambient", m_fill_colorN.x, m_fill_colorN.y, m_fill_colorN.z);
-      m_shader->setUniform3f("color_diffuse",  0.2f, 0.2f, 0.4f);
-      m_shader->setUniform3f("color_specular", 0.3f, 0.3f, 0.3f);
-      m_shader->setUniform1f("brightness", 1.0f);
-      m_shader->setUniform1i("nb_light", m__nb_light_dynamic);
-      m_shader->setUniform3f("light_position", glm::vec4(m_light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-      m_shader->end();
-      break;
-
-    case 4:
-      m_shader = &m_shaders_illum[4];
-      m_shader->begin();
-      m_shader->setUniform3f("color_ambient", m_fill_colorN.x, m_fill_colorN.y, m_fill_colorN.z);
-      m_shader->setUniform3f("color_diffuse",  0.2f, 0.2f, 0.2f);
-      m_shader->setUniform3f("color_specular", 0.4f, 0.3f, 0.4f);
-      m_shader->setUniform1f("brightness", 1.0f);
-      m_shader->setUniform3f("light_position", glm::vec4(m_light.getGlobalPosition(), 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-      m_shader->setUniformTexture("NormalMaptex", (m_normal_map), 2);
-      m_shader->end();
-      break;
-
-    default:
-      break;
-  }
-
     
 
-    if (m_index_shader_select != -1)
-    {
-     // activer l'éclairage dynamique
-
-      ofEnableLighting();
-
-    // activer la lumière dynamique
-      // m_light.enable();
-    }
 
     if (!m_enable_materiel)
     {
@@ -304,11 +205,7 @@ namespace objects_in_scene
     
     if (!m_hard_coded_obj)
       m_objectImport.setScale(m_x_scale * 0.2, m_y_scale * 0.2, m_z_scale * 0.2);
-    
-    if (m_index_shader_select != -1)
-    {
-      m_shader->begin();
-    }
+   
 
     //activer la texture
     if (m_enable_texture)
@@ -320,27 +217,13 @@ namespace objects_in_scene
 
     if (!m_image_redim_selected)
     {
-      if(m_choi_materiau != -1)
-      {
-        m_materiel_lego[m_choi_materiau].begin();
-      }
+     
       m_objectImport.drawFaces(); //on affiche l'image en (milieu,400) de grosseur native.
       // ofLog() << m_posx + m_width_img / 2 << "YYYYYYYYYYYYYYYYYY : " <<  m_posy + m_height_img / 2 << "ZZZZZ : " << m_posz;
 
-      if(m_choi_materiau != -1)
-      {
-        m_materiel_lego[m_choi_materiau].end();
-      }
+    
     }
 
-    if (m_index_shader_select != -1)
-    {
-      m_shader->end();
-      ofDisableLighting();
-
-      m_objectImport.enableMaterials();
-    
-    }   
     
 
 
@@ -379,14 +262,7 @@ namespace objects_in_scene
       // ofTranslate(0, 0, m_posz);
       ofNoFill(); //On dessine la sélection autour de l'image.
       ofSetLineWidth(1);
-      if (m_lego_lock)
-      {
-        ofSetColor(255, 0, 0);
-      }
-      else
-      {
         ofSetColor(0, 100, 20);
-      }
       ofDrawRectangle(m_posx - 1, m_posy - 1, //On décale les x,y de -1 et on agrandit la zone de 2 pour qu'elle soit visible AUTOUR de
                       m_width_img + 2, m_height_img + 2);
       ofSetColor(255, 255, 255); //remise à 0 des couleurs pour les autres images du programme.
@@ -475,7 +351,7 @@ namespace objects_in_scene
  */
   void Import_obj::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
-    if (m_mouse_move_image == true && m_image_redim_selected == false && m_lego_lock == false) //SI nous avons activé le déplacement d'image....
+    if (m_mouse_move_image == true && m_image_redim_selected == false) //SI nous avons activé le déplacement d'image....
     {
       m_posx = p_x - m_x_correction; //Déplacement de l'image importée avec l'attribution de la position
       m_posy = p_y - m_y_correction; //corrigée en fonction de l'endroit cliqué dans l'image ! :)
@@ -534,28 +410,12 @@ namespace objects_in_scene
     return m_image_selected;
   }
   /**
- * \brief retourne la textu tempo unable
- * \return exture de l'imaget
- */
-  ofTexture Import_obj::req_texture() const 
-  {
-    ofTexture temp;
-    return temp;
-  }
-  /**
  * \brief retourne si l'image est sélectionnée
  * \param selected Définit l'attribut à true ou false.
  */
   void Import_obj::asg_image_selected(bool p_selected)
   {
     m_image_selected = p_selected;
-  }
-  /**
- * \brief change le filtre
- */
-  void Import_obj::asg_choix_filtre()
-  {
-
   }
 
   /**
@@ -656,36 +516,16 @@ namespace objects_in_scene
  */
   void Import_obj::asg_toggle_lego_lock(bool p_cond)
   {
-    m_lego_lock = p_cond;
   }
   const bool Import_obj::get_if_cubemap() const 
   {
       return false;
   }
-  void Import_obj::set_shader(int p_shader)
-  {
-    m_index_shader_select = p_shader;
-      m_choi_materiau = -1;
-      m_enable_materiel = false;
-  }
   void Import_obj::set_filling_color(ofVec3f p_fill_color)
   {
-    m_fill_color = p_fill_color;
-    m_fill_colorN = m_fill_color.normalized();
   }
   void Import_obj::set_enable_materiel()
   {
-    if (m_enable_materiel == false)
-    {
-      m_enable_materiel = true;
-      m_choi_materiau = -1;
-      ofLog() << m_enable_materiel;
-    }
-    else
-    {
-      m_enable_materiel = false;
-      ofLog() << m_enable_materiel;
-      }
   }
   void Import_obj::set_texture(int p_texture)
   {
@@ -697,54 +537,18 @@ namespace objects_in_scene
       case 0: 
         ofLoadImage(m_texture,"../../data/bloc-life.png");
       break;
-      case 1: 
-        ofLoadImage(m_texture,"../../data/bois.jpg");
-      break;
-      case 2: 
-        ofLoadImage(m_texture,"../../data/brique.jpg");
-      break;
-      case 3: 
-        ofLoadImage(m_texture,"../../data/cailloux.jpg");
-      break;
-      case 4: 
-        ofLoadImage(m_texture,"../../data/gazon.png");
-      break;
-      case 5: 
-        ofLoadImage(m_texture,"../../data/marble.jpg");
-      break;
-      case 6: 
-        ofLoadImage(m_texture,"../../data/metal.jpg");
-      break;
-      case 7: 
-        ofLoadImage(m_texture,"../../data/peinture.jpg");
-      break;
-      case 8: 
-        ofLoadImage(m_texture,"../../data/planche.jpg");
-      break;
-      case 9: 
-        ofLoadImage(m_texture,"../../data/terre.jpg");
-      break;
-      case 10: 
-        ofLoadImage(m_texture,"../../data/textil.jpg");
-      break;
     }
       
   }
 
   void Import_obj::set_choix_material(int p_choi)
   {
-    m_choi_materiau = p_choi;
   }
   void Import_obj::set_nb_dynamic_light(int p_nbLight)
   {
-    m__nb_light_dynamic = p_nbLight;
   }
   void Import_obj::set_pos_dynamic_light(ofVec3f p_pos)
   {
-    ofVec3f postmp = m_light.getGlobalPosition();
-    postmp += p_pos;
-    m_light.setPosition(postmp);
-    ofLog() << m_light.getGlobalPosition();
   }
 
 } /*namespace objects_in_scene*/
