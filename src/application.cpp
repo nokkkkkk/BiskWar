@@ -43,9 +43,28 @@ void Application::draw()
 }
 void Application::update()
 {
+  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
+    {
+      m_instance_Imported[i]->move_obj(0,1,0,0);
+    }
 }
 void Application::keyPressed(int key)
 {
+  switch(key)
+  {
+    case ofKey::OF_KEY_LEFT:
+      m_instance_Imported.back()->move_obj(-25,0,0,0);
+      break;
+    case ofKey::OF_KEY_RIGHT:
+      m_instance_Imported.back()->move_obj(25,0,0,0);
+      break;
+    case ofKey::OF_KEY_UP:
+      m_instance_Imported.back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+      break;
+    case ofKey::OF_KEY_DOWN:
+      m_instance_Imported.back()->move_obj(0,25,0,0);
+      break;
+  }
 
 }
 void Application::keyReleased(int key)
@@ -53,12 +72,10 @@ void Application::keyReleased(int key)
   switch(key)
   {
   case 106:                         // touche j
-                                      //---m_instance_Imported --> Si la touche "i" est appuyee, push_back l'objet à ajouter dans le vector et imb_import.setup() pour parametrer<--
-      obj_to_insert = new Import_obj; //On cree un nouvel objet en memoire par l'entremise du pointeur d'objet m_instance_Imported
+                                     
+      obj_to_insert = new Import_obj;
       m_instance_Imported.push_back(obj_to_insert);
-      m_instance_Imported.back()->setup();
-      show_message("Si votre fichier OBJ est valide, vous pouvez manipuler votre Objet 3D! \nUtiliser le 'X' et '/' sur le modele pour fermer ou redimensionner\nVous pouvez déplacer votre image en -Draging-.\nLes outils de dession sont utilisables pour les rotation entre-autre.\n AMUSEZ-VOUS!");
-      //---m_instance_Imported --> end <--
+      m_instance_Imported.back()->setup("/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/data/blocs/BW.obj");
       break;
   }
 }

@@ -138,6 +138,11 @@ namespace objects_in_scene
         int m__nb_light_dynamic;
 
         void m_show_select(); //Dessine la boite de sélection
+
+
+        int m_bloc_angle;
+
+
     };
 
 } /*namespace objects_in_scene*/

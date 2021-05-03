@@ -17,20 +17,16 @@ namespace objects_in_scene
  */
   void Import_obj::setup(string p_path, bool p_obj_du_menu)
   {
+    m_bloc_angle = 0;
+
+
+
     m_close_true = false;       //Est-ce que on doit detruire l'objet ?
-    m_mouse_move_image = false; //Bool qui vérifie si on doit bouger l'image.
-
-    m_mode_lego = false;
     vitesse_rotation = 0.5;
-
     m_image_selected = false;
-    m_image_redim_selected = false;
     m_toggle_x_rotation = false;
     m_toggle_y_rotation = false;
     m_toggle_z_rotation = false;
-    m_obj_du_menu = p_obj_du_menu;
-    m_random_rotation = ofRandom(3000);
-    m_enable_texture = true;
     string path;
     
     if (p_path == "") //Affiche et prélève le path de l'image à importer ou hardcodé selon le cas.
@@ -38,16 +34,13 @@ namespace objects_in_scene
         m_path_fichier_img = ofSystemLoadDialog("Load file");
         path = m_path_fichier_img.getPath(); //On récupère le path
         m_path_name = path;
-        m_hard_coded_obj = false;
-        ofLog() << path;
 
       }
     else{ //Soi le path est hardcodé
         path = m_path_name = p_path;
-        m_hard_coded_obj = true;
     }
 
-    if (m_path_fichier_img.bSuccess || m_path_name != "") //Si l'ouverture du fichier est un succès:
+    if (true) //Si l'ouverture du fichier est un succès:
     {
       m_objectImport.loadModel(path);
       int n = path.length();
@@ -78,53 +71,11 @@ namespace objects_in_scene
           if (m_model_vertices[i].y < m_model_min_y)
              m_model_min_y = m_model_vertices[i].y;
         }
-        // ofLog() << "maxX :" << m_model_max_x << "maxY :" << m_model_max_y << "minX :" << m_model_min_x << "minY :" << m_model_min_y;
-
         m_model_matrix = m_objectImport.getModelMatrix();
         m_scaling = m_model_matrix.getScale();
         //On laod l'image avec le path
         m_width_img = m_original_m_width_img = (m_model_max_x - m_model_min_x) * m_scaling.x * 0.25; //on enregistre la taille en widht et height + on copie un original qui sert à la redimension.
         m_height_img = m_original_m_height_img = (m_model_max_y - m_model_min_y) * m_scaling.y * 0.25;
-
-        m_index_texture_select = 0;
-        ofLoadImage(m_texture,"../../data/textures/bloc-life.png");
-
-
-  // configurer le matériau Shiny
-  m_materiel_lego[0].setAmbientColor(ofColor(80, 80, 80));
-  m_materiel_lego[0].setDiffuseColor(ofColor(120, 120, 120));
-  m_materiel_lego[0].setEmissiveColor(ofColor(10, 10, 10));
-  m_materiel_lego[0].setSpecularColor(ofColor(150, 150, 150));
-  m_materiel_lego[0].setShininess(1000.0f);
-
-  // configurer le matériau Poreux
-  m_materiel_lego[1].setAmbientColor(ofColor(110, 110, 110));
-  m_materiel_lego[1].setDiffuseColor(ofColor(80, 80, 80));
-  m_materiel_lego[1].setEmissiveColor(ofColor(10, 10, 10));
-  m_materiel_lego[1].setSpecularColor(ofColor(10, 10, 10));
-  m_materiel_lego[1].setShininess(0.0f);
-
-  // configurer le matériau Metalique
-  m_materiel_lego[2].setAmbientColor(ofColor(25, 25, 25));
-  m_materiel_lego[2].setDiffuseColor(ofColor(200, 200, 200));
-  m_materiel_lego[2].setEmissiveColor(ofColor(10, 10, 10));
-  m_materiel_lego[2].setSpecularColor(ofColor(120, 120, 120));
-  m_materiel_lego[2].setShininess(50.0f);
-
-  // configurer le matériau Caoutchou
-  m_materiel_lego[3].setAmbientColor(ofColor(180, 150, 150));
-  m_materiel_lego[3].setDiffuseColor(ofColor(120, 120, 150));
-  m_materiel_lego[3].setEmissiveColor(ofColor(100, 100, 100));
-  m_materiel_lego[3].setSpecularColor(ofColor(200, 200, 200));
-  m_materiel_lego[3].setShininess(20.0f);
-
-  m__nb_light_dynamic = 2;
-  m_light.setPosition(0, 0, 0);
-  m_light.setOrientation(ofVec3f(0,0,0));
-
-
-
-
       }
       else
       {
@@ -135,7 +86,7 @@ namespace objects_in_scene
       m_y_scale = 1;
       m_z_scale = 1;
       m_posx = ofGetWindowWidth() / 2 - 250 / 2 + ofRandom(300) - ofRandom(400); //On affiche la nouvelle image aleatoire
-      m_posy = 400 + ofRandom(300) - ofRandom(300);                              //On alligne l'image à 400 pixels de hauteur.
+      m_posy = 0;                              //On alligne l'image à 400 pixels de hauteur.
       m_posz = 0;
       m_image_selected = true;                   //Bool : Par défaut la sélection est à true donc on affiche
       m_redim_box_height = 10;                   //Hauteur de la zone de redimensionnage de l'image.
@@ -203,17 +154,9 @@ namespace objects_in_scene
       m_objectImport.setPosition(m_posx_lego + m_width_img / 2, m_posy_lego + m_height_img / 2, m_posz_lego);
     }
     
-    if (!m_hard_coded_obj)
-      m_objectImport.setScale(m_x_scale * 0.2, m_y_scale * 0.2, m_z_scale * 0.2);
+      m_objectImport.setScale(m_x_scale * 0.1, m_y_scale * 0.1, m_z_scale * 0.1);
    
 
-    //activer la texture
-    if (m_enable_texture)
-    {
-      m_objectImport.disableColors();
-      m_objectImport.disableTextures();
-      m_texture.bind();
-    }
 
     if (!m_image_redim_selected)
     {
@@ -227,13 +170,6 @@ namespace objects_in_scene
     
 
 
-    //deactiver la texture
-    if (m_enable_texture)
-    {
-      m_texture.unbind();
-      m_objectImport.enableColors();
-      m_objectImport.enableTextures();
-    }
 
     if (m_toggle_x_rotation == true)
     {
@@ -351,12 +287,12 @@ namespace objects_in_scene
  */
   void Import_obj::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
-    if (m_mouse_move_image == true && m_image_redim_selected == false) //SI nous avons activé le déplacement d'image....
-    {
-      m_posx = p_x - m_x_correction; //Déplacement de l'image importée avec l'attribution de la position
-      m_posy = p_y - m_y_correction; //corrigée en fonction de l'endroit cliqué dans l'image ! :)
-      m_posz = p_z ;     //corrigée en fonction de l'endroit cliqué dans l'image ! :)
-    }
+    // if (m_mouse_move_image == true && m_image_redim_selected == false) //SI nous avons activé le déplacement d'image....
+    // {
+      m_posx += p_x;
+      m_posy += p_y;
+      m_posz = p_z;
+    // }
   }
   /**
  * \brief Sélectionne l'objet et enregistre les coordo du clic.
@@ -383,14 +319,8 @@ namespace objects_in_scene
  */
   void Import_obj::rotate_obj(int which, float angle, float rot_x, float rot_y, float r_z)
   {
-    if (m_mode_lego)
-    {
-      m_objectImport.setRotation(which, round(angle / 90) * 90, rot_x, rot_y, r_z);
-    }
-    else
-    {
-      m_objectImport.setRotation(which, angle, rot_x, rot_y, r_z);
-    }
+      m_bloc_angle += angle;
+      m_objectImport.setRotation(which, m_bloc_angle, rot_x, rot_y, r_z);
   }
 
   /**
@@ -529,16 +459,6 @@ namespace objects_in_scene
   }
   void Import_obj::set_texture(int p_texture)
   {
-
-    m_enable_texture = true;
-    m_index_texture_select = p_texture;
-    switch(p_texture)
-    {
-      case 0: 
-        ofLoadImage(m_texture,"../../data/bloc-life.png");
-      break;
-    }
-      
   }
 
   void Import_obj::set_choix_material(int p_choi)
