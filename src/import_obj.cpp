@@ -19,25 +19,12 @@ namespace objects_in_scene
     m_toggle_z_rotation = false;
     string path;
     path = m_path_name = p_path;
-
-    int n = path.length();
-    char path_char[n + 1];
-    strcpy(path_char, path.c_str());
-
-    if ((int)path_char[n - 1] == (int)'j')
-    {
-      m_objectImport.loadModel(path);      
-      m_model_matrix = m_objectImport.getModelMatrix();
-      m_scaling = m_model_matrix.getScale();
-    }
-    else
-    {
-      m_close_true = true;
-    }
-
-    m_x_scale = 0.1;
-    m_y_scale = 0.1;
-    m_z_scale = 0.1;
+    m_objectImport.loadModel(path);      
+    m_model_matrix = m_objectImport.getModelMatrix();
+    m_scaling = m_model_matrix.getScale();
+    m_x_scale = 0.09;
+    m_y_scale = 0.15;
+    m_z_scale = 0.15;
     m_posx = ofGetWindowWidth() / 2 + ofRandom(300) - ofRandom(400); //On affiche la nouvelle image aleatoire sur X
     m_posy = 0;               
     m_posz = 0;
@@ -45,29 +32,17 @@ namespace objects_in_scene
 
   void Import_obj::show_obj()
   {
-      m_objectImport.enableMaterials();
-    
-      m_objectImport.setPosition(m_posx, m_posy, m_posz);
-      m_objectImport.setScale(m_x_scale, m_y_scale, m_z_scale);
-   
-    if (!m_image_redim_selected)
-    {
-     
-      m_objectImport.drawFaces(); //on affiche l'image en (milieu,400) de grosseur native.
-    }
+    m_objectImport.enableMaterials();
+    m_objectImport.setPosition(m_posx, m_posy, m_posz);
+    m_objectImport.setScale(m_x_scale, m_y_scale, m_z_scale);
+    m_objectImport.drawFaces(); 
     if (m_toggle_x_rotation == true)
-    {
       m_objectImport.setRotation(0, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 1.0f, 0.0f, 0.0f);
-    }
     if (m_toggle_y_rotation == true)
-    {
       m_objectImport.setRotation(1, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 0.0f, 1.0f, 0.0f);
-    }
     if (m_toggle_z_rotation == true)
-    {
       m_objectImport.setRotation(2, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 0.0f, 0.0f, 1.0f);
-    }
-
+    m_objectImport.disableMaterials();
   }
   void Import_obj::m_show_select()
   {
@@ -114,7 +89,6 @@ namespace objects_in_scene
   {
     m_image_selected = p_selected;
   }
-
   void Import_obj::resetMouse(int p_x, int p_y, int p_button)
   {
   }
@@ -140,7 +114,6 @@ namespace objects_in_scene
   }
   void Import_obj::asg_toggle_mode_lego(bool p_condition)
   {
-    m_mode_lego = p_condition;
   }
   int Import_obj::req_pos_z() const
   {
@@ -152,9 +125,6 @@ namespace objects_in_scene
   }
   void Import_obj::asg_position(float p_x, float p_y, float p_z)
   {
-   m_posx = m_posx_lego = p_x;
-   m_posy = m_posy_lego = p_y;
-   m_posz = m_posz_lego = p_z;
   }
   void Import_obj::asg_bounding_size(int p_x, int p_y)
   {

@@ -11,7 +11,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Outil_dessin.h"
 #include "Instance_Imported.h"
 #include "ofxAssimpModelLoader.h"
 
@@ -65,7 +64,6 @@ namespace objects_in_scene
         //ATTRIBUTS PRIVÉS
         ofxAssimpModelLoader m_objectImport;   //objet qui sera chargée.
         ofFileDialogResult m_path_fichier_img; //Boite de sélection de fichier qui demande un path.
-        Outil_dessin outil_dessin;             //Instance pour acceger au valeur de l'outil du GUI
         string m_path_name;                    //Nom du pathName en string.
         bool m_image_selected;                 //détermine si l'image est sélectionnée
         bool m_image_redim_selected;           //détermine si l'image est sélectionnée et la zone de redim

@@ -11,7 +11,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Outil_dessin.h"
 #include "Instance_Imported.h"
 
 namespace objects_in_scene

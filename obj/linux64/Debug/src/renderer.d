@@ -559,15 +559,12 @@ obj/linux64/Debug/src/renderer.o: \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/of3dUtils.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_img.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Outil_dessin.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/drawPrim.h
+ /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h:
 
@@ -1721,13 +1718,9 @@ obj/linux64/Debug/src/renderer.o: \
 
 /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h:
 
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_img.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Outil_dessin.h:
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h:
 
 /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h:
 
@@ -1736,5 +1729,3 @@ obj/linux64/Debug/src/renderer.o: \
 /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h:
 
 /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/drawPrim.h:

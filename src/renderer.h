@@ -5,9 +5,7 @@
 
 
 #include "ofMain.h"
-#include "import_img.h"
 #include "import_obj.h"
-#include "drawPrim.h"
 #include "Instance_Imported.h"
 
 // énumération de différents modes pour changer la couleur d'arrière-plan

@@ -14,26 +14,15 @@ void Application::setup()
 
 void Application::draw()
 {
-  
   ofDisableAlphaBlending();
   ofEnableDepthTest();
   ofEnableSmoothing();
   ofEnableAntiAliasing();
-
   renderer.draw();
-  //---m_instance_Imported --> parcour du vector d'images afin de l'afficher et d'afficher la zone de selection autour.<--
-    for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
-    {
-        m_instance_Imported[i]->show_obj();
-      // materiel_lego[choi_materiau].end();
-      if (m_instance_Imported[i]->req_close_true() == 1)
-      { //Si on doit ferme l'image on lenleve du vector
-        m_instance_Imported.erase(m_instance_Imported.begin() + i);
-      }
-    }
-
-  renderer.draw();
-
+  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
+  {
+      m_instance_Imported[i]->show_obj();
+  }
   ofEnableAlphaBlending();
   ofDisableDepthTest();
   ofDisableSmoothing();
@@ -116,6 +105,4 @@ void Application::mouseExited(int x, int y)
 // fonction appelée pour reset tous les caméra à leur position init.
 void Application::show_message(string new_message)
 {
-  message = new_message;
-  ofLog() << message;
 }

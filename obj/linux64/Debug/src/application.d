@@ -560,38 +560,14 @@ obj/linux64/Debug/src/application.o: \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_img.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Outil_dessin.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h \
  /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/drawPrim.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cursor.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cubeMap.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/ofxDatGui.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiGroups.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiLabel.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiComponent.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiIntObject.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/themes/ofxDatGuiThemes.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/themes/ofxDatGuiTheme.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/libs/ofxSmartFont/ofxSmartFont.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiEvents.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiConstants.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiButton.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiSlider.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTextInputField.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTextInput.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiFRM.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGui2dPad.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiColorPicker.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiMatrix.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTimeGraph.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiScrollView.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiControls.h
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cubeMap.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/application.h:
 
@@ -1747,13 +1723,9 @@ obj/linux64/Debug/src/application.o: \
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h:
 
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_img.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Outil_dessin.h:
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Instance_Imported.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/import_obj.h:
 
 /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h:
 
@@ -1763,50 +1735,6 @@ obj/linux64/Debug/src/application.o: \
 
 /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h:
 
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/drawPrim.h:
-
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cursor.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cubeMap.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/ofxDatGui.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiGroups.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiLabel.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiComponent.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiIntObject.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/themes/ofxDatGuiThemes.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/themes/ofxDatGuiTheme.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/libs/ofxSmartFont/ofxSmartFont.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiEvents.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/core/ofxDatGuiConstants.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiButton.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiSlider.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTextInputField.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTextInput.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiFRM.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGui2dPad.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiColorPicker.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiMatrix.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiTimeGraph.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiScrollView.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxDatGui/src/components/ofxDatGuiControls.h:
