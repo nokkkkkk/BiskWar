@@ -9,20 +9,32 @@ void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
-  renderer.setup();
+  cameras.setPosition(0, 0, -1000);
+  cameras.lookAt(ofVec3f(0, 0, 0));
+  lights.setPosition(0, 0, -1000);
+  lights.lookAt(ofVec3f(0, 0, 0));
+  cameras.enableOrtho();
 }
 
 void Application::draw()
 {
-  ofDisableAlphaBlending();
+ 
+ ofDisableAlphaBlending();
   ofEnableDepthTest();
   ofEnableSmoothing();
   ofEnableAntiAliasing();
-  renderer.draw();
+  cameras.setVFlip(true);
+  cameras.begin();
+  lights.enable();
+
   for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
   {
       m_instance_Imported[i]->show_obj();
   }
+
+  cameras.disableOrtho();
+  lights.disable();
+  cameras.end();
   ofEnableAlphaBlending();
   ofDisableDepthTest();
   ofDisableSmoothing();
@@ -33,7 +45,8 @@ void Application::update()
 {
   for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
     {
-      m_instance_Imported[i]->move_obj(0,1,0,0);
+      if(ofGetFrameNum() % 60 == 0)
+        m_instance_Imported[i]->move_obj(0,25,0,0);
     }
 }
 void Application::keyPressed(int key)
@@ -41,10 +54,10 @@ void Application::keyPressed(int key)
   switch(key)
   {
     case ofKey::OF_KEY_LEFT:
-      m_instance_Imported.back()->move_obj(-25,0,0,0);
+      m_instance_Imported.back()->move_obj(25,0,0,0);
       break;
     case ofKey::OF_KEY_RIGHT:
-      m_instance_Imported.back()->move_obj(25,0,0,0);
+      m_instance_Imported.back()->move_obj(-25,0,0,0);
       break;
     case ofKey::OF_KEY_UP:
       m_instance_Imported.back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);

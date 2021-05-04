@@ -16,9 +16,12 @@ class Application : public ofBaseApp
   std::vector<objects_in_scene::Instance_Imported *> m_instance_Imported; // Déclaration d'un vecteur de pointeur pour Polymorphisme
   objects_in_scene::Import_obj *obj_to_insert;                            //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
 
+  ofLight lights;
+  ofCamera cameras;
 public:
   Renderer renderer;
   Cursor cursor;
+  string message;
   
   void setup();
   void draw();

@@ -63,80 +63,24 @@ namespace objects_in_scene
     private:
         //ATTRIBUTS PRIVÉS
         ofxAssimpModelLoader m_objectImport;   //objet qui sera chargée.
-        ofFileDialogResult m_path_fichier_img; //Boite de sélection de fichier qui demande un path.
         string m_path_name;                    //Nom du pathName en string.
-        bool m_image_selected;                 //détermine si l'image est sélectionnée
-        bool m_image_redim_selected;           //détermine si l'image est sélectionnée et la zone de redim
-        bool m_mouse_move_image;               // Si le clic est dans l'image, on active mouse mouseDragged()
+        bool m_image_selected;
         bool m_toggle_x_rotation;
         bool m_toggle_y_rotation;
         bool m_toggle_z_rotation;
-        bool m_hard_coded_obj;
-        bool m_obj_du_menu;
-        bool m_lego_lock;
         float vitesse_rotation;
         int m_posx;       //Conserve la position X de l'image
         int m_posy;       //Conserve la position Y  de l'image
         int m_posz;       //Conserve la position Y  de l'image
-        int m_posx_lego; //Conserve la position X de la box
-        int m_posy_lego; //Conserve la position Y  de la box
-        int m_posz_lego; //Conserve la position Y  de la box
-        int m_width_img;  //La largeur de l'image en tout temps
-        int m_height_img; //La hauteur de l'image en tout temps
-        int m_random_rotation; //Valeur pour que les objet ne tourne pas en meme temps.
 
-        std::vector<ofVec3f> m_model_vertices; //Vecteur pour contenir la liste des sommets du model.
-        ofMesh m_model_mesh;
-        float m_model_max_x;                     //sommet le max en x
-        float m_model_min_x;                     //sommet le min en x
-        float m_model_max_y;                     //sommet le max en y
-        float m_model_min_y;                     //sommet le min en y
-
-        float new_scale_x;           //scale Calculer avec la box de selection ********METTRE DANS DES VECTEUR DANS LE FUTUR !!!!*******
-        float new_scale_y;           //scale Calculer avec la box de selection
-        float new_scale_z;           //scale Calculer avec la box de selection
         float m_x_scale;             //La x de l'image en tout temps
         float m_y_scale;             //La y de l'image en tout temps
         float m_z_scale;             //La z de l'image en tout temps
-        int m_original_m_width_img;  //La largeur original avant redimension à des fins de calculs
-        int m_original_m_height_img; //La largeur hauteur avant redimension à des fins de calculs
-        int m_redim_box_height;      //La hauteur de la boite de redimension
-        int m_redim_box_width;       //La largeur de la boite de redimension
-        int m_close_box_height;      //La hauteur de la boite de destruction
-        int m_close_box_width;       //La largeur de la boite de destruction
-
-        int m_clicked_x;    //Conserve un clic X
-        int m_clicked_y;    //Conserve un clic Y
-        int m_x_correction; //Conserve la correction X à appliquer pour un déplacement serin :)
-        int m_y_correction; //Conserve la correction Y  à apliquer pour un déplacement serin :)
         bool m_close_true;  //Detect si la destruction de l'image est effectuée.
         bool m_mode_lego;  
         bool m_enable_materiel;
-        ofMatrix4x4 m_model_matrix;
-        ofVec3f m_scaling;
-                          
-
-        ofShader m_shaders_illum[5];;
-        ofShader* m_shader;
-        ofLight m_light;
-        string m_shader_name;
-        int m_index_shader_select;
-
-        ofMaterial m_materiel_lego[4];
-        int m_choi_materiau;
-
-        ofVec3f m_fill_color;
-        ofVec3f m_fill_colorN;
-
-        ofTexture m_texture;
-        ofTexture m_normal_map;
-        bool m_enable_texture;
-        int m_index_texture_select;
-
-        int m__nb_light_dynamic;
 
         void m_show_select(); //Dessine la boite de sélection
-
 
         int m_bloc_angle;
 

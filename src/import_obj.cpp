@@ -20,12 +20,10 @@ namespace objects_in_scene
     string path;
     path = m_path_name = p_path;
     m_objectImport.loadModel(path);      
-    m_model_matrix = m_objectImport.getModelMatrix();
-    m_scaling = m_model_matrix.getScale();
     m_x_scale = 0.09;
     m_y_scale = 0.15;
     m_z_scale = 0.15;
-    m_posx = ofGetWindowWidth() / 2 + ofRandom(300) - ofRandom(400); //On affiche la nouvelle image aleatoire sur X
+    m_posx = 0; //On affiche la nouvelle image aleatoire sur X
     m_posy = 0;               
     m_posz = 0;
   }
@@ -37,11 +35,11 @@ namespace objects_in_scene
     m_objectImport.setScale(m_x_scale, m_y_scale, m_z_scale);
     m_objectImport.drawFaces(); 
     if (m_toggle_x_rotation == true)
-      m_objectImport.setRotation(0, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 1.0f, 0.0f, 0.0f);
+      m_objectImport.setRotation(0, ofGetFrameNum() * vitesse_rotation, 1.0f, 0.0f, 0.0f);
     if (m_toggle_y_rotation == true)
-      m_objectImport.setRotation(1, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 0.0f, 1.0f, 0.0f);
+      m_objectImport.setRotation(1, ofGetFrameNum() * vitesse_rotation, 0.0f, 1.0f, 0.0f);
     if (m_toggle_z_rotation == true)
-      m_objectImport.setRotation(2, ofGetFrameNum() * vitesse_rotation + m_random_rotation, 0.0f, 0.0f, 1.0f);
+      m_objectImport.setRotation(2, ofGetFrameNum() * vitesse_rotation, 0.0f, 0.0f, 1.0f);
     m_objectImport.disableMaterials();
   }
   void Import_obj::m_show_select()
