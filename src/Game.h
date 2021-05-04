@@ -12,6 +12,7 @@
 class Game
 {
 public: 
+    Game();
     Game(int p_nb_blocs_to_load);   
 private:
 
