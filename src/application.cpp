@@ -24,7 +24,6 @@ void Application::draw()
   //---m_instance_Imported --> parcour du vector d'images afin de l'afficher et d'afficher la zone de selection autour.<--
     for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
     {
-     
         m_instance_Imported[i]->show_obj();
       // materiel_lego[choi_materiau].end();
       if (m_instance_Imported[i]->req_close_true() == 1)
@@ -75,7 +74,7 @@ void Application::keyReleased(int key)
                                      
       obj_to_insert = new Import_obj;
       m_instance_Imported.push_back(obj_to_insert);
-      m_instance_Imported.back()->setup("/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/data/blocs/BW.obj");
+      m_instance_Imported.back()->setup("../../data/blocs/BW.obj");
       break;
   }
 }
@@ -83,8 +82,6 @@ void Application::keyReleased(int key)
 // fonction appelee quand la position du curseur change
 void Application::mouseMoved(int x, int y)
 {
-  cursor.mouse_current_x = x;
-  cursor.mouse_current_y = y;
 }
 
 void Application::exit()
@@ -93,46 +90,15 @@ void Application::exit()
 // fonction appelee quand la position du curseur change pendant qu'un bouton d'un peripherique de pointage est appuye
 void Application::mouseDragged(int x, int y, int button)
 {
-  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
-  {
-   m_instance_Imported[i]->move_obj(x, y, m_instance_Imported[i]->req_pos_z(), button);
-   m_instance_Imported[i]->redim_obj(x, y, button);
-  }
-  
-
 }
 // fonction appelee quand un bouton d'un peripherique de pointage est appuye
 void Application::mousePressed(int x, int y, int button)
 {
-
-  anchorx = x;
-  anchory = y;
-
-  cursor.is_mouse_button_pressed = true;
-
-  cursor.mouse_current_x = x;
-  cursor.mouse_current_y = y;
-
-  cursor.mouse_press_x = x;
-  cursor.mouse_press_y = y;
- for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
-  {
-      m_instance_Imported[i]->select_obj(x, y, button);
-      if (m_instance_Imported[i]->req_close_true() == 1)
-      { //Si la zone de destruction de l'objet dans le vesteur est cliquee, on le supprime du vector.
-        m_instance_Imported.erase(m_instance_Imported.begin() + i);
-      }
-    
-  }
 }
 
 // fonction appelee quand un bouton d'un peripherique de pointage est relâche
 void Application::mouseReleased(int x, int y, int button)
 { 
-  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
-  {
-    m_instance_Imported[i]->resetMouse(x, y, button);
-  }
 
 }
 
