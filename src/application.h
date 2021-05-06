@@ -4,9 +4,7 @@
 
 #include "ofMain.h"
 #include "renderer.h"
-#include "cursor.h"
 #include "std_bloc.h"
-#include "cubeMap.h"
 #include "blocs.h"
 #include "Factogame.h"
 #include "Factoblocs.h"
@@ -28,7 +26,6 @@ class Application : public ofBaseApp
 
 public:
   Renderer renderer;
-  Cursor cursor;
   string message;
   
   void setup();

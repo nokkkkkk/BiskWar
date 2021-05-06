@@ -16,32 +16,9 @@ namespace objects_in_scene
         void show_obj();
         bool get_bloc_lock() const;
 
-        virtual void select_obj(int p_x, int p_y, int p_button);
         virtual void move_obj(int p_x, int p_y, int p_z, int p_button);
-        virtual void redim_obj(int p_x, int p_y, int p_button);
-        virtual bool req_close_true() const;
-        virtual bool req_image_selected() const;
-        virtual int req_pos_z() const;
-        virtual void asg_image_selected(bool p_selected);
-        virtual void asg_toggle_rotation_x();
-        virtual void asg_toggle_rotation_y();
-        virtual void asg_toggle_rotation_z();
-        virtual void resetMouse(int p_x, int p_y, int p_button);
         virtual void rotate_obj(int which, float angle, float rot_x, float rot_y, float r_z);
-        virtual const string getPathName() const;
-        virtual void asg_vitesse_rotation(float speed);
-        virtual void asg_toggle_mode_lego(bool p_condition);
-        virtual void asg_scale(float p_scale);
-        virtual void asg_position(float p_x, float p_y, float p_z);
-        virtual void asg_bounding_size(int p_x, int p_y);
-        virtual void asg_toggle_lego_lock(bool p_cond);
-        virtual const bool get_if_cubemap() const ;
-        virtual void set_filling_color(ofVec3f p_fill_color);
-        virtual void set_enable_materiel();
-        virtual void set_texture(int p_texture);
-        virtual void set_choix_material(int p_choi);
-        virtual void set_nb_dynamic_light(int p_nbLight);
-        virtual void set_pos_dynamic_light(ofVec3f p_pos);
+
 
     private:
         //ATTRIBUTS PRIVÉS
@@ -68,8 +45,6 @@ namespace objects_in_scene
         bool m_close_true;  //Detect si la destruction de l'image est effectuée.
         bool m_mode_lego;  
         bool m_enable_materiel;
-
-        void m_show_select(); //Dessine la boite de sélection
 
         int m_bloc_angle;
 

@@ -12,6 +12,8 @@ Project{
         name: { return FileInfo.baseName(sourceDirectory) }
 
         files: [
+            'src/Factoblocs.cpp',
+            'src/Factoblocs.h',
             'src/Factogame.cpp',
             'src/Factogame.h',
             'src/Game.cpp',
@@ -20,6 +22,8 @@ Project{
             'src/Instance_Imported.h',
             'src/application.cpp',
             'src/application.h',
+            'src/blocs.cpp',
+            'src/blocs.h',
             'src/cubeMap.cpp',
             'src/cubeMap.h',
             'src/cursor.cpp',
@@ -31,6 +35,8 @@ Project{
             'src/ofApp.h',
             'src/renderer.cpp',
             'src/renderer.h',
+            'src/std_bloc.cpp',
+            'src/std_bloc.h',
         ]
 
         of.addons: [
