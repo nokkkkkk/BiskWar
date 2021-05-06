@@ -15,7 +15,7 @@
 class Factogame
 {
 public: 
- Game& get_game();
+ static Game& get_game();
 
 private:
 

@@ -9,6 +9,7 @@ void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
+  game_on = Factogame::get_game();
   cameras.setPosition(0, 0, -1000);
   cameras.lookAt(ofVec3f(0, 0, 0));
   lights.setPosition(0, 0, -1000);

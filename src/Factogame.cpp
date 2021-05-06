@@ -5,6 +5,6 @@
 
 Game& Factogame::get_game()
 {
-    Game new_game(100);
+    Game new_game;
     return new_game;
 }

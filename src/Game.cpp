@@ -5,13 +5,12 @@
 
 Game::Game()
 {
-   
 }
 
 
 
 Game::Game(int p_nb_blocs_to_load)
 {
-    ofLog() << p_nb_blocs_to_load;
+    // ofLog() << p_nb_blocs_to_load;
 }
 
