@@ -12,9 +12,9 @@ namespace objects_in_scene
     {
     public: //FONCTIONS PUBLIQUES
         Std_bloc();
-        void setup(string p_path = "", bool p_obj_du_menu = false);
-
+        void setup(bool p_block_depart = false);
         void show_obj();
+        bool get_bloc_lock() const;
 
         virtual void select_obj(int p_x, int p_y, int p_button);
         virtual void move_obj(int p_x, int p_y, int p_z, int p_button);
@@ -46,6 +46,12 @@ namespace objects_in_scene
     private:
         //ATTRIBUTS PRIVÉS
         ofxAssimpModelLoader m_objectImport;   //objet qui sera chargée.
+        bool m_block_lock;
+
+
+
+
+
         string m_path_name;                    //Nom du pathName en string.
         bool m_image_selected;
         bool m_toggle_x_rotation;

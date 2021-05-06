@@ -6,7 +6,7 @@ namespace objects_in_scene
   Std_bloc::Std_bloc() : Blocs()
   {
   }
-  void Std_bloc::setup(string p_path, bool p_obj_du_menu)
+  void Std_bloc::setup(bool p_block_depart)
   {
     m_bloc_angle = 0;
     m_close_true = false;       //Est-ce que on doit detruire l'objet ?
@@ -15,14 +15,18 @@ namespace objects_in_scene
     m_toggle_x_rotation = false;
     m_toggle_y_rotation = false;
     m_toggle_z_rotation = false;
-    m_path_name = p_path;
     m_objectImport.loadModel("../../data/blocs/BW.obj");      
     m_x_scale = 0.09;
     m_y_scale = 0.15;
     m_z_scale = 0.15;
-    m_posx = 0; //On affiche la nouvelle image aleatoire sur X
-    m_posy = 0;               
+    m_block_lock = p_block_depart;
+    m_posx = ofRandom(0) - ofRandom(400); //On affiche la nouvelle image aleatoire sur X
+    m_posy = 0;   
     m_posz = 0;
+    if (m_block_lock)
+    {
+      m_posy = ofRandom(100) + ofRandom(400); 
+    }            
   }
 
   void Std_bloc::show_obj()
@@ -55,10 +59,27 @@ namespace objects_in_scene
  */
   void Std_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
-      m_posx += p_x;
+    if(m_posy < 550){
       m_posy += p_y;
-      m_posz = p_z;
+    }
+    else{
+      m_block_lock = true;
+    }
+    m_posx += p_x;
+    m_posz = p_z;
   }
+  bool Std_bloc::get_bloc_lock() const
+  {
+    return m_block_lock;
+  }
+
+
+
+
+
+
+
+
   /**
  * \brief Sélectionne l'objet et enregistre les coordo du clic.
  */

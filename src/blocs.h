@@ -19,8 +19,13 @@ namespace objects_in_scene
         Blocs();
         virtual ~Blocs(){};
 
-        virtual void setup(string p_path = "", bool p_obj_du_menu = false) = 0;
+        virtual void setup(bool p_block_depart = false) = 0;
         virtual void show_obj() = 0;
+
+        virtual bool get_bloc_lock() const;
+
+
+
 
         virtual void select_obj(int p_x, int p_y, int p_button) ;
         virtual void move_obj(int p_x, int p_y, int p_z, int p_button);

@@ -9,7 +9,10 @@ void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
+
   game_on = Factogame::get_game(1);
+  all_blocs_are_lock = false;
+
   cameras.setPosition(0, 0, -1000);
   cameras.lookAt(ofVec3f(0, 0, 0));
   lights.setPosition(0, 0, -1000);
@@ -44,11 +47,20 @@ void Application::draw()
 }
 void Application::update()
 {
+  all_blocs_are_lock = true;
   for (unsigned int i = 0; i <  game_on->get_vecteur_blocs().size(); i++)
     {
-      if(ofGetFrameNum() % 60 == 0)
-         game_on->get_vecteur_blocs()[i]->move_obj(0,25,0,0);
+      if (game_on->get_vecteur_blocs()[i]->get_bloc_lock() == false)
+      {
+        all_blocs_are_lock = false;
+      }
     }
+    if (all_blocs_are_lock)
+    {
+      game_on->add_bloc(1);
+    }
+      if(ofGetFrameNum() % 60 == 0)
+         game_on->get_vecteur_blocs().back()->move_obj(0,25,0,0);
 }
 void Application::keyPressed(int key)
 {

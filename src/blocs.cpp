@@ -106,4 +106,10 @@ namespace objects_in_scene
     {
     }
 
+
+    bool Blocs::get_bloc_lock() const 
+    {
+        return false;
+    }
+
 } /*namespace objects_in_scene*/

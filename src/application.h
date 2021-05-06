@@ -22,6 +22,10 @@ class Application : public ofBaseApp
   Game* game_on;
   ofLight lights;
   ofCamera cameras;
+  bool all_blocs_are_lock;
+
+
+
 public:
   Renderer renderer;
   Cursor cursor;

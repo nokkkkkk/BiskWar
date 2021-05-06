@@ -9,14 +9,18 @@
 #include "Factoblocs.h"
 
 
+const int nb_lignes = 17;
+const int nb_col = 8;
 class Game
 {
 public: 
     Game();
     Game(int p_nb_blocs_to_load, int p_nb_joueurs);   
-    void start_game();
+    void start_game(); 
+    void show_state_table();
     void add_bloc(int p_type);    
     std::vector<objects_in_scene::Blocs *> get_vecteur_blocs();
+    char m_etat_table[nb_lignes][nb_col];
 
 private:
    
