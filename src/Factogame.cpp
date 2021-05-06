@@ -3,8 +3,10 @@
 
 #include "Factogame.h"
 
-Game& Factogame::get_game()
+Game* Factogame::get_game()
 {
-    Game new_game;
-    return new_game;
+
+    return new Game(100);
+    // Game new_game;
+    // return new_game;
 }

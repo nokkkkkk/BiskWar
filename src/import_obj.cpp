@@ -5,7 +5,7 @@
 #include <math.h> 
 namespace objects_in_scene
 {
-  Import_obj::Import_obj() : Instance_Imported()
+  Import_obj::Import_obj() : Blocs()
   {
   }
   void Import_obj::setup(string p_path, bool p_obj_du_menu)

@@ -28,9 +28,9 @@ void Application::draw()
   cameras.begin();
   lights.enable();
 
-  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
+  for (unsigned int i = 0; i < m_blocs.size(); i++)
   {
-      m_instance_Imported[i]->show_obj();
+      m_blocs[i]->show_obj();
   }
 
   cameras.disableOrtho();
@@ -44,10 +44,10 @@ void Application::draw()
 }
 void Application::update()
 {
-  for (unsigned int i = 0; i < m_instance_Imported.size(); i++)
+  for (unsigned int i = 0; i < m_blocs.size(); i++)
     {
       if(ofGetFrameNum() % 60 == 0)
-        m_instance_Imported[i]->move_obj(0,25,0,0);
+        m_blocs[i]->move_obj(0,25,0,0);
     }
 }
 void Application::keyPressed(int key)
@@ -55,16 +55,16 @@ void Application::keyPressed(int key)
   switch(key)
   {
     case ofKey::OF_KEY_LEFT:
-      m_instance_Imported.back()->move_obj(25,0,0,0);
+      m_blocs.back()->move_obj(25,0,0,0);
       break;
     case ofKey::OF_KEY_RIGHT:
-      m_instance_Imported.back()->move_obj(-25,0,0,0);
+      m_blocs.back()->move_obj(-25,0,0,0);
       break;
     case ofKey::OF_KEY_UP:
-      m_instance_Imported.back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+      m_blocs.back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
       break;
     case ofKey::OF_KEY_DOWN:
-      m_instance_Imported.back()->move_obj(0,25,0,0);
+      m_blocs.back()->move_obj(0,25,0,0);
       break;
   }
 
@@ -76,8 +76,8 @@ void Application::keyReleased(int key)
   case 106:                         // touche j
                                      
       obj_to_insert = new Import_obj;
-      m_instance_Imported.push_back(obj_to_insert);
-      m_instance_Imported.back()->setup("../../data/blocs/BW.obj");
+      m_blocs.push_back(obj_to_insert);
+      m_blocs.back()->setup("../../data/blocs/BW.obj");
       break;
   }
 }

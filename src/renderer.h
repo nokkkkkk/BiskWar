@@ -6,7 +6,6 @@
 
 #include "ofMain.h"
 #include "import_obj.h"
-#include "Instance_Imported.h"
 
 
 class Renderer

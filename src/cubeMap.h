@@ -11,7 +11,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Instance_Imported.h"
+#include "blocs.h"
 
 namespace objects_in_scene
 {
@@ -24,7 +24,7 @@ namespace objects_in_scene
  *        
  */
 
-    class Cubemap : public Instance_Imported
+    class Cubemap : public Blocs
     {
     public: //FONCTIONS PUBLIQUES
         Cubemap();

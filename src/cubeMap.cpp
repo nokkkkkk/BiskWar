@@ -10,7 +10,7 @@ namespace objects_in_scene
  * \brief Constructeur par défaut.
 */
 
-  Cubemap::Cubemap() : Instance_Imported()
+  Cubemap::Cubemap() : Blocs()
   {
   }
   /**

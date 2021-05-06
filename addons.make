@@ -1,5 +1,1 @@
 ofxAssimpModelLoader
-ofxDatGui
-ofxGui
-ofxOpenCv
-ofxVectorGraphics

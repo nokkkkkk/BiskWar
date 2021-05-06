@@ -11,7 +11,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Instance_Imported.h"
+#include "blocs.h"
 #include "ofxAssimpModelLoader.h"
 
 namespace objects_in_scene
@@ -25,7 +25,7 @@ namespace objects_in_scene
  *        
  */
 
-    class Import_obj : public Instance_Imported
+    class Import_obj : public Blocs
     {
     public: //FONCTIONS PUBLIQUES
         Import_obj();
