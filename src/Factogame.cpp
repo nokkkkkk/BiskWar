@@ -8,7 +8,7 @@ Game* Factogame::get_game(int p_nb_joueurs)
     switch(p_nb_joueurs)
     {
         case 1:                     
-            return new Game(100, 1);           
+            return new Game(10, 1);           
         break;
         default:
             return new Game(0, 0);

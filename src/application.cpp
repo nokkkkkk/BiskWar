@@ -28,9 +28,9 @@ void Application::draw()
   cameras.begin();
   lights.enable();
 
-  for (unsigned int i = 0; i < m_blocs.size(); i++)
+  for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
   {
-      m_blocs[i]->show_obj();
+      game_on->get_vecteur_blocs()[i]->show_obj();
   }
 
   cameras.disableOrtho();
@@ -44,10 +44,10 @@ void Application::draw()
 }
 void Application::update()
 {
-  for (unsigned int i = 0; i < m_blocs.size(); i++)
+  for (unsigned int i = 0; i <  game_on->get_vecteur_blocs().size(); i++)
     {
       if(ofGetFrameNum() % 60 == 0)
-        m_blocs[i]->move_obj(0,25,0,0);
+         game_on->get_vecteur_blocs()[i]->move_obj(0,25,0,0);
     }
 }
 void Application::keyPressed(int key)
@@ -55,16 +55,16 @@ void Application::keyPressed(int key)
   switch(key)
   {
     case ofKey::OF_KEY_LEFT:
-      m_blocs.back()->move_obj(25,0,0,0);
+       game_on->get_vecteur_blocs().back()->move_obj(25,0,0,0);
       break;
     case ofKey::OF_KEY_RIGHT:
-      m_blocs.back()->move_obj(-25,0,0,0);
+      game_on->get_vecteur_blocs().back()->move_obj(-25,0,0,0);
       break;
     case ofKey::OF_KEY_UP:
-      m_blocs.back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+      game_on->get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
       break;
     case ofKey::OF_KEY_DOWN:
-      m_blocs.back()->move_obj(0,25,0,0);
+      game_on->get_vecteur_blocs().back()->move_obj(0,25,0,0);
       break;
   }
 
