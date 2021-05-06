@@ -5,7 +5,7 @@
 #include "ofMain.h"
 #include "renderer.h"
 #include "cursor.h"
-#include "import_obj.h"
+#include "std_bloc.h"
 #include "cubeMap.h"
 #include "blocs.h"
 #include "Factogame.h"
@@ -16,7 +16,7 @@ class Application : public ofBaseApp
   private :
 
   std::vector<objects_in_scene::Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme
-  objects_in_scene::Import_obj *obj_to_insert;                            //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
+  objects_in_scene::Std_bloc *obj_to_insert;                            //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
 
   Game* game_on;
   ofLight lights;

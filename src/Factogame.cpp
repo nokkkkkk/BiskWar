@@ -3,10 +3,15 @@
 
 #include "Factogame.h"
 
-Game* Factogame::get_game()
+Game* Factogame::get_game(int p_nb_joueurs)
 {
-
-    return new Game(100);
-    // Game new_game;
-    // return new_game;
+    switch(p_nb_joueurs)
+    {
+        case 1:                     
+            return new Game(100, 1);           
+        break;
+        default:
+            return new Game(0, 0);
+        break;
+    }
 }

@@ -560,7 +560,7 @@ obj/linux64/Debug/src/application.o: \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/OF/libs/openFrameworks/3d/ofEasyCam.h \
  /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/renderer.h \
- /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/import_obj.h \
+ /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/std_bloc.h \
  /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/blocs.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
  /home/guillaume/ULAVAL/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
@@ -1725,7 +1725,7 @@ obj/linux64/Debug/src/application.o: \
 
 /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/renderer.h:
 
-/home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/import_obj.h:
+/home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/std_bloc.h:
 
 /home/guillaume/ULAVAL/OF/apps/myApps/BIskWar/src/blocs.h:
 

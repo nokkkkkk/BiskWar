@@ -15,7 +15,7 @@
 class Factogame
 {
 public: 
- static Game* get_game();
+ static Game* get_game(int p_nb_joueurs);
 
 private:
 

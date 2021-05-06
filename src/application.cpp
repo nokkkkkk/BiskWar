@@ -9,7 +9,7 @@ void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
-  game_on = Factogame::get_game();
+  game_on = Factogame::get_game(1);
   cameras.setPosition(0, 0, -1000);
   cameras.lookAt(ofVec3f(0, 0, 0));
   lights.setPosition(0, 0, -1000);
@@ -75,7 +75,7 @@ void Application::keyReleased(int key)
   {
   case 106:                         // touche j
                                      
-      obj_to_insert = new Import_obj;
+      obj_to_insert = new Std_bloc;
       m_blocs.push_back(obj_to_insert);
       m_blocs.back()->setup("../../data/blocs/BW.obj");
       break;
