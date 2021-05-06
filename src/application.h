@@ -9,6 +9,7 @@
 #include "cubeMap.h"
 #include "blocs.h"
 #include "Factogame.h"
+#include "Factoblocs.h"
 #include "Game.h"
 
 class Application : public ofBaseApp

@@ -74,10 +74,7 @@ void Application::keyReleased(int key)
   switch(key)
   {
   case 106:                         // touche j
-                                     
-      obj_to_insert = new Std_bloc;
-      m_blocs.push_back(obj_to_insert);
-      m_blocs.back()->setup("../../data/blocs/BW.obj");
+      game_on->add_bloc(1);
       break;
   }
 }

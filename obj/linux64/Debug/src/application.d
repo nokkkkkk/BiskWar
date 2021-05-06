@@ -569,7 +569,8 @@ obj/linux64/Debug/src/application.o: \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cursor.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/cubeMap.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factogame.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/application.h:
 
@@ -1744,3 +1745,5 @@ obj/linux64/Debug/src/application.o: \
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factogame.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h:
+
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h:

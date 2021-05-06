@@ -15,9 +15,8 @@ namespace objects_in_scene
     m_toggle_x_rotation = false;
     m_toggle_y_rotation = false;
     m_toggle_z_rotation = false;
-    string path;
-    path = m_path_name = p_path;
-    m_objectImport.loadModel(path);      
+    m_path_name = p_path;
+    m_objectImport.loadModel("../../data/blocs/BW.obj");      
     m_x_scale = 0.09;
     m_y_scale = 0.15;
     m_z_scale = 0.15;
