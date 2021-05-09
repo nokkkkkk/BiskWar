@@ -29,8 +29,6 @@ namespace objects_in_scene
 
 
 
-        string m_path_name;                    //Nom du pathName en string.
-        bool m_image_selected;
         bool m_toggle_x_rotation;
         bool m_toggle_y_rotation;
         bool m_toggle_z_rotation;
@@ -38,14 +36,10 @@ namespace objects_in_scene
         int m_posx;       //Conserve la position X de l'image
         int m_posy;       //Conserve la position Y  de l'image
         int m_posz;       //Conserve la position Y  de l'image
-
         float m_x_scale;             //La x de l'image en tout temps
         float m_y_scale;             //La y de l'image en tout temps
         float m_z_scale;             //La z de l'image en tout temps
         bool m_close_true;  //Detect si la destruction de l'image est effectuée.
-        bool m_mode_lego;  
-        bool m_enable_materiel;
-
         int m_bloc_angle;
 
 

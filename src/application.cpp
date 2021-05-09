@@ -22,8 +22,8 @@ void Application::setup()
 
 void Application::draw()
 {
- 
- ofDisableAlphaBlending();
+
+  ofDisableAlphaBlending();
   ofEnableDepthTest();
   ofEnableSmoothing();
   ofEnableAntiAliasing();
@@ -33,7 +33,7 @@ void Application::draw()
 
   for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
   {
-      game_on->get_vecteur_blocs()[i]->show_obj();
+    game_on->get_vecteur_blocs()[i]->show_obj();
   }
 
   cameras.disableOrtho();
@@ -43,51 +43,49 @@ void Application::draw()
   ofDisableDepthTest();
   ofDisableSmoothing();
   ofDisableAntiAliasing();
-
 }
 void Application::update()
 {
   all_blocs_are_lock = true;
-  for (unsigned int i = 0; i <  game_on->get_vecteur_blocs().size(); i++)
+  for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
+  {
+    if (game_on->get_vecteur_blocs()[i]->get_bloc_lock() == false)
     {
-      if (game_on->get_vecteur_blocs()[i]->get_bloc_lock() == false)
-      {
-        all_blocs_are_lock = false;
-      }
+      all_blocs_are_lock = false;
     }
-    if (all_blocs_are_lock)
-    {
-      game_on->add_bloc(1);
-    }
-      if(ofGetFrameNum() % 60 == 0)
-         game_on->get_vecteur_blocs().back()->move_obj(0,25,0,0);
+  }
+  if (all_blocs_are_lock)
+  {
+    game_on->add_bloc(1);
+  }
+  if (ofGetFrameNum() % 60 == 0)
+    game_on->get_vecteur_blocs().back()->move_obj(0, 25, 0, 0);
 }
 void Application::keyPressed(int key)
 {
-  switch(key)
+  switch (key)
   {
-    case ofKey::OF_KEY_LEFT:
-       game_on->get_vecteur_blocs().back()->move_obj(25,0,0,0);
-      break;
-    case ofKey::OF_KEY_RIGHT:
-      game_on->get_vecteur_blocs().back()->move_obj(-25,0,0,0);
-      break;
-    case ofKey::OF_KEY_UP:
-      game_on->get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
-      break;
-    case ofKey::OF_KEY_DOWN:
-      game_on->get_vecteur_blocs().back()->move_obj(0,25,0,0);
-      break;
+  case ofKey::OF_KEY_LEFT:
+    game_on->get_vecteur_blocs().back()->move_obj(25, 0, 0, 0);
+    break;
+  case ofKey::OF_KEY_RIGHT:
+    game_on->get_vecteur_blocs().back()->move_obj(-25, 0, 0, 0);
+    break;
+  case ofKey::OF_KEY_UP:
+    game_on->get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+    break;
+  case ofKey::OF_KEY_DOWN:
+    game_on->get_vecteur_blocs().back()->move_obj(0, 25, 0, 0);
+    break;
   }
-
 }
 void Application::keyReleased(int key)
 {
-  switch(key)
+  switch (key)
   {
-  case 106:                         // touche j
-      game_on->add_bloc(1);
-      break;
+  case 106: // touche j
+    game_on->add_bloc(1);
+    break;
   }
 }
 
@@ -110,14 +108,12 @@ void Application::mousePressed(int x, int y, int button)
 
 // fonction appelee quand un bouton d'un peripherique de pointage est relâche
 void Application::mouseReleased(int x, int y, int button)
-{ 
-
+{
 }
 
 // fonction appelee quand le curseur entre dans la fenêtre d'affichage
 void Application::mouseEntered(int x, int y)
 {
-
 }
 
 // fonction appelee quand le curseur sort de la fenêtre d'affichage
