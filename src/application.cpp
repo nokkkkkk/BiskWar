@@ -31,11 +31,17 @@ void Application::draw()
   cameras.begin();
   lights.enable();
 
-  for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
-  {
-    game_on->get_vecteur_blocs()[i]->show_obj();
-  }
-  game_on->show_grid();
+  ofPushMatrix();//matrice de la partie joueur 1
+  ofTranslate(700, -500, 0); // Décalage de la matrice du joueur 1
+
+    for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
+    {
+      game_on->get_vecteur_blocs()[i]->show_obj();
+    }
+    game_on->show_grid();
+
+  ofPopMatrix();
+
 
   cameras.disableOrtho();
   lights.disable();
