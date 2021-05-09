@@ -22,6 +22,7 @@ namespace objects_in_scene
         virtual void setup(bool p_block_depart = false) = 0;
         virtual void show_obj() = 0;
 
+        virtual const ofVec2f get_pos_on_grid() const;
         virtual bool get_bloc_lock() const;
 
         virtual void move_obj(int p_x, int p_y, int p_z, int p_button);

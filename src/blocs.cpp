@@ -23,5 +23,9 @@ namespace objects_in_scene
     {
         return false;
     }
+    ofVec2f const Blocs::get_pos_on_grid() const 
+    {
+        return ofVec2f(0,0);
+    }
 
 } /*namespace objects_in_scene*/

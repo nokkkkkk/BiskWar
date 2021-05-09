@@ -18,7 +18,6 @@ namespace objects_in_scene
     m_pos.y = 25;
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
-    ofLog() << m_pos_on_grid;
     m_pos.z = 0;
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
@@ -58,7 +57,10 @@ namespace objects_in_scene
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
 
-    ofLog() << m_pos_on_grid;
+  }
+  ofVec2f const Std_bloc::get_pos_on_grid() const 
+  {
+      return m_pos_on_grid;
   }
   bool Std_bloc::get_bloc_lock() const
   {

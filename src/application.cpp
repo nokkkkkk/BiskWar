@@ -54,6 +54,10 @@ void Application::update()
     {
       all_blocs_are_lock = false;
     }
+    else
+    {
+      game_on->set_block_from_pos_in_table(game_on->get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on->get_vecteur_blocs()[i]->get_pos_on_grid().y, 'G');
+    }
   }
   if (all_blocs_are_lock)
   {
@@ -68,6 +72,7 @@ void Application::keyPressed(int key)
   {
   case ofKey::OF_KEY_LEFT:
     game_on->get_vecteur_blocs().back()->move_obj(50, 0, 0, 0);
+      game_on->show_state_table();
     break;
   case ofKey::OF_KEY_RIGHT:
     game_on->get_vecteur_blocs().back()->move_obj(-50, 0, 0, 0);

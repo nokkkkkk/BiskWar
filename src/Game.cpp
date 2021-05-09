@@ -26,7 +26,6 @@ Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs)
     }
 
         set_block_from_pos_in_table(2,2,'W');
-        show_state_table();
         
 }
 void Game::show_grid()
