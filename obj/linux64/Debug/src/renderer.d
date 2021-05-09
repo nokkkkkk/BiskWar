@@ -560,11 +560,7 @@ obj/linux64/Debug/src/renderer.o: \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h:
 
@@ -1721,11 +1717,3 @@ obj/linux64/Debug/src/renderer.o: \
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h:

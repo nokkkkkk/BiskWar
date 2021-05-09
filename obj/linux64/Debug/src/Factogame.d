@@ -562,10 +562,6 @@ obj/linux64/Debug/src/Factogame.o: \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h \
- /home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factogame.h:
@@ -1725,13 +1721,5 @@ obj/linux64/Debug/src/Factogame.o: \
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h:
-
-/home/guillaume/ULAVAL/Info/OF/addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h:
