@@ -17,6 +17,7 @@ namespace objects_in_scene
 
     private:
         //ATTRIBUTS PRIVÉS
+        ofVec2f m_pos_on_grid;
         ofVec3f m_pos;
         ofColor m_fill_color;
         ofColor m_line_color;

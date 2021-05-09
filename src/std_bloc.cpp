@@ -16,11 +16,17 @@ namespace objects_in_scene
     m_line_size = 1;
     m_pos.x = -25;
     m_pos.y = 25;
+    m_pos_on_grid.x = (int)(m_pos.x / -50);
+    m_pos_on_grid.y = (int)(m_pos.y / 50);
+    ofLog() << m_pos_on_grid;
     m_pos.z = 0;
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
       m_pos.x = (int)ofRandom(7) * -50 - 25; //On affiche la nouvelle image aleatoire sur X
       m_pos.y = (int)ofRandom(16) * 50 + 25;
+      m_pos_on_grid.x = (int)(m_pos.x / -50);
+      m_pos_on_grid.y = (int)(m_pos.y / 50);
+
     }
   }
 
@@ -49,6 +55,10 @@ namespace objects_in_scene
     }
     m_pos.x += p_x;
     m_pos.z = p_z;
+    m_pos_on_grid.x = (int)(m_pos.x / -50);
+    m_pos_on_grid.y = (int)(m_pos.y / 50);
+
+    ofLog() << m_pos_on_grid;
   }
   bool Std_bloc::get_bloc_lock() const
   {
