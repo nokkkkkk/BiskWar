@@ -35,6 +35,7 @@ void Application::draw()
   {
     game_on->get_vecteur_blocs()[i]->show_obj();
   }
+  game_on->show_grid();
 
   cameras.disableOrtho();
   lights.disable();
@@ -59,23 +60,23 @@ void Application::update()
     game_on->add_bloc(1);
   }
   if (ofGetFrameNum() % 60 == 0)
-    game_on->get_vecteur_blocs().back()->move_obj(0, 25, 0, 0);
+    game_on->get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
 }
 void Application::keyPressed(int key)
 {
   switch (key)
   {
   case ofKey::OF_KEY_LEFT:
-    game_on->get_vecteur_blocs().back()->move_obj(25, 0, 0, 0);
+    game_on->get_vecteur_blocs().back()->move_obj(50, 0, 0, 0);
     break;
   case ofKey::OF_KEY_RIGHT:
-    game_on->get_vecteur_blocs().back()->move_obj(-25, 0, 0, 0);
+    game_on->get_vecteur_blocs().back()->move_obj(-50, 0, 0, 0);
     break;
   case ofKey::OF_KEY_UP:
     game_on->get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
     break;
   case ofKey::OF_KEY_DOWN:
-    game_on->get_vecteur_blocs().back()->move_obj(0, 25, 0, 0);
+    game_on->get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
     break;
   }
 }

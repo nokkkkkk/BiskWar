@@ -11,23 +11,40 @@ Game::Game()
 
 Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs)
 {
-    int char_to_insert = 65;
-  for (unsigned int i = 0; i < p_nb_blocs_to_load; i++)
-    {
-      m_blocs.push_back(new Std_bloc);
-      m_blocs.back()->setup(true);
-      ofLog() << i;
-    }
+    m_size_grid_slot = 50;
+    for (unsigned int i = 0; i < p_nb_blocs_to_load; i++)
+        {
+        m_blocs.push_back(new Std_bloc);
+        m_blocs.back()->setup(true);
+        }
     for (unsigned int i = 0; i < nb_lignes; i++)
     {
         for (unsigned int y = 0; y < nb_col; y++)
         {
             m_etat_table[i][y] = '.';
-                
         }
     }
-    set_block_from_pos_in_table(2,2,'W');
-    show_state_table();
+
+        set_block_from_pos_in_table(2,2,'W');
+        show_state_table();
+        
+}
+void Game::show_grid()
+{
+    int x_pos = 0;
+    int y_pos = 0;
+    for (unsigned int i = 0; i < nb_lignes; i++)
+    {
+        y_pos = i * m_size_grid_slot;
+        for (unsigned int y = 0; y < nb_col; y++)
+        {
+            x_pos = -(y * m_size_grid_slot);
+            ofSetColor(20,20,250);
+            ofSetLineWidth(1);
+            ofDrawRectangle(x_pos, y_pos, -m_size_grid_slot,m_size_grid_slot);
+        }
+    }
+
 }
 void Game::start_game()
 {
