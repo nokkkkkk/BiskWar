@@ -1,8 +1,7 @@
 
 #include "spec_bloc.h"
 #include <math.h>
-namespace objects_in_scene
-{
+
   Spec_bloc::Spec_bloc() : Blocs()
   {
   }
@@ -66,5 +65,3 @@ namespace objects_in_scene
     m_bloc_angle += angle;
     m_objectImport.setRotation(which, m_bloc_angle, rot_x, rot_y, r_z);
   }
-
-} /*namespace objects_in_scene*/

@@ -3,8 +3,6 @@
 
 #include "Factoblocs.h"
 
-using namespace objects_in_scene;
-
 Blocs* Factoblocs::get_bloc(int p_type_bloc)
 {
     // switch(p_type_bloc)

@@ -3,8 +3,6 @@
 #include <iostream>
 #include "application.h"
 
-using namespace objects_in_scene;
-
 void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");

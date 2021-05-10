@@ -3,8 +3,6 @@
 
 #include "renderer.h"
 
-using namespace objects_in_scene;
-
 void Renderer::setup()
 {
 

@@ -3,8 +3,7 @@
 
 #include "blocs.h"
 
-namespace objects_in_scene
-{
+
 
     /**
  * \brief Constructeur par défaut.
@@ -27,5 +26,3 @@ namespace objects_in_scene
     {
         return ofVec2f(0,0);
     }
-
-} /*namespace objects_in_scene*/

@@ -16,7 +16,7 @@
 class Factoblocs
 {
 public: 
- static objects_in_scene::Blocs* get_bloc(int p_type_bloc);
+ static Blocs* get_bloc(int p_type_bloc);
 
 private:
 

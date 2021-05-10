@@ -4,8 +4,6 @@
 #include "ofMain.h"
 #include "blocs.h"
 
-namespace objects_in_scene
-{
     class Std_bloc : public Blocs
     {
     public: //FONCTIONS PUBLIQUES
@@ -27,5 +25,3 @@ namespace objects_in_scene
         bool m_block_lock;
         bool m_close_true;  //Detect si la destruction de l'image est effectuée.
     };
-
-} /*namespace objects_in_scene*/

@@ -1,8 +1,6 @@
 
 #include "std_bloc.h"
 #include <math.h>
-namespace objects_in_scene
-{
   Std_bloc::Std_bloc() : Blocs()
   {
   }
@@ -68,5 +66,3 @@ namespace objects_in_scene
   {
     return m_block_lock;
   }
-
-} /*namespace objects_in_scene*/

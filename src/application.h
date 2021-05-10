@@ -13,8 +13,8 @@
 class Application : public ofBaseApp
 {
 private:
-  std::vector<objects_in_scene::Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme
-  objects_in_scene::Std_bloc *obj_to_insert;      //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
+  std::vector<Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme
+  Std_bloc *obj_to_insert;      //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
 
   Game *game_on;
   ofLight lights;

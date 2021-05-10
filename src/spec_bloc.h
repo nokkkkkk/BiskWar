@@ -5,8 +5,7 @@
 #include "blocs.h"
 #include "ofxAssimpModelLoader.h"
 
-namespace objects_in_scene
-{
+
 
     class Spec_bloc : public Blocs
     {
@@ -45,4 +44,3 @@ namespace objects_in_scene
 
     };
 
-} /*namespace objects_in_scene*/

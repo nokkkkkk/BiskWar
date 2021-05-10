@@ -9,8 +9,7 @@
 
 #include "ofMain.h"
 
-namespace objects_in_scene
-{
+
 
 
     class Blocs
@@ -32,6 +31,3 @@ namespace objects_in_scene
 
     private:
     };
-
-} /*namespace objects_in_scene*/
-

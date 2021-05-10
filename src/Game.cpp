@@ -3,7 +3,6 @@
 
 #include "Game.h"
 using namespace std;
-using namespace objects_in_scene;
 
 Game::Game()
 {
