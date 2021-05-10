@@ -42,7 +42,7 @@
     m_objectImport.disableMaterials();
   }
 
-  void Spec_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
+  void Spec_bloc::move_obj(int p_x, int p_y, int p_z, int p_button, const Game& p_game_on)
   {
     if (m_posy < 550)
     {

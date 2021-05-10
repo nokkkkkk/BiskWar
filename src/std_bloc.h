@@ -12,7 +12,7 @@
         void show_obj();
         virtual const ofVec2f get_pos_on_grid() const;
         bool get_bloc_lock() const;
-        virtual void move_obj(int p_x, int p_y, int p_z, int p_button);
+        virtual void move_obj(int p_x, int p_y, int p_z, int p_button, const Game& p_game_on);
 
     private:
         //ATTRIBUTS PRIVÉS

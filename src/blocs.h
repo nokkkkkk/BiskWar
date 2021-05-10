@@ -8,6 +8,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Game.h"
 
 
 
@@ -24,7 +25,7 @@
         virtual const ofVec2f get_pos_on_grid() const;
         virtual bool get_bloc_lock() const;
 
-        virtual void move_obj(int p_x, int p_y, int p_z, int p_button);
+        virtual void move_obj(int p_x, int p_y, int p_z, int p_button, const Game& p_game_on);
         virtual void rotate_obj(int which, float angle, float rot_x, float rot_y, float r_z);
 
 
