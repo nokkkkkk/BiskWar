@@ -8,7 +8,7 @@ void Application::setup()
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
 
-  game_on = Factogame::get_game(1);
+  game_on = *Factogame::get_game(1);
   all_blocs_are_lock = false;
 
   cameras.setPosition(0, 0, -1000);
@@ -32,11 +32,11 @@ void Application::draw()
   ofPushMatrix();//matrice de la partie joueur 1
   ofTranslate(700, -500, 0); // Décalage de la matrice du joueur 1
 
-    for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
+    for (unsigned int i = 0; i < game_on.get_vecteur_blocs().size(); i++)
     {
-      game_on->get_vecteur_blocs()[i]->show_obj();
+      game_on.get_vecteur_blocs()[i]->show_obj();
     }
-    game_on->show_grid();
+    game_on.show_grid();
 
   ofPopMatrix();
 
@@ -52,40 +52,40 @@ void Application::draw()
 void Application::update()
 {
   all_blocs_are_lock = true;
-  for (unsigned int i = 0; i < game_on->get_vecteur_blocs().size(); i++)
+  for (unsigned int i = 0; i < game_on.get_vecteur_blocs().size(); i++)
   {
-    if (game_on->get_vecteur_blocs()[i]->get_bloc_lock() == false)
+    if (game_on.get_vecteur_blocs()[i]->get_bloc_lock() == false)
     {
       all_blocs_are_lock = false;
     }
     else
     {
-      game_on->set_block_from_pos_in_table(game_on->get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on->get_vecteur_blocs()[i]->get_pos_on_grid().y, 'G');
+      game_on.set_block_from_pos_in_table(game_on.get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on.get_vecteur_blocs()[i]->get_pos_on_grid().y, 'G');
     }
   }
   if (all_blocs_are_lock)
   {
-    game_on->add_bloc(1);
+    game_on.add_bloc(1);
   }
   if (ofGetFrameNum() % 60 == 0)
-    game_on->get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
+    game_on.get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
 }
 void Application::keyPressed(int key)
 {
   switch (key)
   {
   case ofKey::OF_KEY_LEFT:
-    game_on->get_vecteur_blocs().back()->move_obj(50, 0, 0, 0);
-      game_on->show_state_table();
+    game_on.get_vecteur_blocs().back()->move_obj(50, 0, 0, 0);
+      game_on.show_state_table();
     break;
   case ofKey::OF_KEY_RIGHT:
-    game_on->get_vecteur_blocs().back()->move_obj(-50, 0, 0, 0);
+    game_on.get_vecteur_blocs().back()->move_obj(-50, 0, 0, 0);
     break;
   case ofKey::OF_KEY_UP:
-    game_on->get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+    game_on.get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
     break;
   case ofKey::OF_KEY_DOWN:
-    game_on->get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
+    game_on.get_vecteur_blocs().back()->move_obj(0, 50, 0, 0);
     break;
   }
 }
@@ -94,7 +94,7 @@ void Application::keyReleased(int key)
   switch (key)
   {
   case 106: // touche j
-    game_on->add_bloc(1);
+    game_on.add_bloc(1);
     break;
   }
 }

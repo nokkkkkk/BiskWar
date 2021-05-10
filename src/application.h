@@ -16,7 +16,7 @@ private:
   std::vector<Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme
   Std_bloc *obj_to_insert;      //Déclaration d'un pointeur d'objet pour creer des nouveau objet a envoyer au PUSHBACK du vecteur
 
-  Game *game_on;
+  Game game_on;
   ofLight lights;
   ofCamera cameras;
   bool all_blocs_are_lock;
