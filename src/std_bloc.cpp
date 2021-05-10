@@ -42,7 +42,7 @@ namespace objects_in_scene
 
   }
 
-  void Std_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
+ void Std_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
     if (m_pos_on_grid.y < 16)
     {
@@ -52,8 +52,10 @@ namespace objects_in_scene
     {
       m_block_lock = true;
     }
-    m_pos.x += p_x;
-    m_pos.z = p_z;
+    if ((m_pos_on_grid.x != 0 && p_x > 0) || (m_pos_on_grid.x != 7 && p_x < 0))
+    {
+      m_pos.x += p_x;
+    }
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
 
