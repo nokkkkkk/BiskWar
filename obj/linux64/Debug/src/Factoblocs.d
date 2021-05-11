@@ -559,8 +559,8 @@ obj/linux64/Debug/src/Factoblocs.o: \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/of3dUtils.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h:
 
@@ -1714,6 +1714,6 @@ obj/linux64/Debug/src/Factoblocs.o: \
 
 /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h:
 
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:
-
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h:
+
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:

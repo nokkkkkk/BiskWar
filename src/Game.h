@@ -4,8 +4,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "std_bloc.h"
-#include "blocs.h"
 #include "Factoblocs.h"
 
 

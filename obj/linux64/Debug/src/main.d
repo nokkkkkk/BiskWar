@@ -559,12 +559,11 @@ obj/linux64/Debug/src/main.o: \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofCamera.h \
  /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/3d/ofEasyCam.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/application.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factogame.h \
  /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h \
- /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h \
+ /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h
 
 /home/guillaume/ULAVAL/Info/OF/libs/openFrameworks/ofMain.h:
 
@@ -1718,14 +1717,12 @@ obj/linux64/Debug/src/main.o: \
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/application.h:
 
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/renderer.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h:
-
-/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:
-
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factogame.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Game.h:
 
 /home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/Factoblocs.h:
+
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/std_bloc.h:
+
+/home/guillaume/ULAVAL/Info/OF/apps/myApps/BiskWar/src/blocs.h:

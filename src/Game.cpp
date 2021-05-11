@@ -24,7 +24,7 @@ Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs) // coplien Copy and swap --
         }
     }
 
-        set_block_from_pos_in_table(2,2,'W');
+        // set_block_from_pos_in_table(2,2,'W');
         
 }
 void Game::show_grid()
