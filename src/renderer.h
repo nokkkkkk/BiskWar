@@ -5,7 +5,6 @@
 
 
 #include "ofMain.h"
-#include "std_bloc.h"
 
 
 class Renderer

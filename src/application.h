@@ -3,12 +3,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "renderer.h"
-#include "std_bloc.h"
-#include "blocs.h"
 #include "Factogame.h"
-#include "Factoblocs.h"
-#include "Game.h"
 
 class Application : public ofBaseApp
 {
@@ -22,7 +17,6 @@ private:
   bool all_blocs_are_lock;
 
 public:
-  Renderer renderer;
   string message;
 
   void setup();

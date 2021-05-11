@@ -1,13 +1,8 @@
-
-
-
 #pragma once
 
 #include "ofMain.h"
 #include "std_bloc.h"
-#include "blocs.h"
 #include "Factoblocs.h"
-
 
 const int nb_lignes = 17;
 const int nb_col = 8;
