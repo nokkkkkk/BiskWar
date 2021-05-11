@@ -22,14 +22,13 @@ public:
     char get_block_from_pos_in_table(int p_x, int p_y);
     void set_block_from_pos_in_table(int p_x, int p_y, char p_char_bloc);
     void add_bloc(int p_type);    
+    void move_obj(int p_x, int p_y, int p_z, int p_button);
     std::vector<Blocs *> get_vecteur_blocs();
     char m_etat_table[nb_lignes][nb_col];
 
 private:
    ofColor m_grid_color = (25,25,255);
    int m_size_grid_slot;
-
-  
   std::vector<Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme   
 };
 

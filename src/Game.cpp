@@ -8,7 +8,7 @@ Game::Game()
 {
 }
 
-Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs)
+Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs) // coplien Copy and swap -- DEsgin 
 {
     m_size_grid_slot = 50;
     for (unsigned int i = 0; i < p_nb_blocs_to_load; i++)
@@ -47,6 +47,13 @@ void Game::show_grid()
 void Game::start_game()
 {
 }
+
+void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
+  {
+    
+    m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+
+  }
 vector<Blocs *> Game::get_vecteur_blocs()
 {
     return m_blocs;
