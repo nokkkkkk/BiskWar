@@ -50,33 +50,57 @@ void Game::start_game()
 
 void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
-      if (p_x != 0) //Si on bouge de gauche a droite
-      {
+    bool bloc_side_can_move = false; //on part avec l'idée qu'on ne peut pas bouger...
+    if (p_x < 0) // Si on bouge vers la droite...
+    {
+        //Si aucun bloc ne se trouve à droite, on peut bouger. 
+        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y) == '.')
+        {
+            bloc_side_can_move = true;
+        }
+    }
+    if (p_x > 0) // Si on bouge vers la gauche...
+    {
+        //Si aucun bloc ne se trouve à gauche, on peut bouger. 
+        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y) == '.')
+        {
+            bloc_side_can_move = true;
+        }
+    }
+
+    if (p_x != 0) //Si on bouge de gauche a droite
+    {
+        //Si nous ne sommes pas au bord du tableau
         if ((m_blocs.back()->get_pos_on_grid().x != 0 && p_x > 0) || (m_blocs.back()->get_pos_on_grid().x != 7 && p_x < 0))
         {
-            m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+            if(bloc_side_can_move)
+            {
+                m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+            }
         }
-      }
+    }
 
-      if (p_y != 0) // si on bouge vers le bas
-      {
+    if (p_y != 0) // si on bouge vers le bas
+    {
+        //Si nous ne sommes pas au fond ou en colision avec un autre bloc en dessous : On bouge
         if (m_blocs.back()->get_pos_on_grid().y < 16 && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
         {
             m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
             ofLog() << get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) ;
         }
+        //SINON on lock le bloc
         else
         {
             m_blocs.back()->set_bloc_lock(true);
         }
-      }
-
-    
-
-
-    
-
+    }
+    verify_last_move_to_clear();
   }
+
+void Game::verify_last_move_to_clear()
+{
+
+}
 vector<Blocs *> Game::get_vecteur_blocs()
 {
     return m_blocs;

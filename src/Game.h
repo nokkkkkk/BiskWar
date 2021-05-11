@@ -25,6 +25,8 @@ public:
     char m_etat_table[nb_lignes][nb_col];
 
 private:
+  void verify_last_move_to_clear();    
+
    ofColor m_grid_color = (25,25,255);
    int m_size_grid_slot;
   std::vector<Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme   
