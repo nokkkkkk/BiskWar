@@ -42,18 +42,8 @@
 
  void Std_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
-    if (m_pos_on_grid.y < 16)
-    {
-      m_pos.y += p_y;
-    }
-    else
-    {
-      m_block_lock = true;
-    }
-    if ((m_pos_on_grid.x != 0 && p_x > 0) || (m_pos_on_grid.x != 7 && p_x < 0))
-    {
-      m_pos.x += p_x;
-    }
+    m_pos.y += p_y;
+    m_pos.x += p_x;
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
 
@@ -61,6 +51,10 @@
   ofVec2f const Std_bloc::get_pos_on_grid() const 
   {
       return m_pos_on_grid;
+  }
+  void Std_bloc::set_bloc_lock(bool p_cond) 
+  {
+    m_block_lock = p_cond;
   }
   bool Std_bloc::get_bloc_lock() const
   {

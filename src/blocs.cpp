@@ -22,6 +22,9 @@
     {
         return false;
     }
+    void Blocs::set_bloc_lock(bool p_cond) 
+    {
+    }
     ofVec2f const Blocs::get_pos_on_grid() const 
     {
         return ofVec2f(0,0);

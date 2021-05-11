@@ -50,8 +50,31 @@ void Game::start_game()
 
 void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
+      if (p_x != 0) //Si on bouge de gauche a droite
+      {
+        if ((m_blocs.back()->get_pos_on_grid().x != 0 && p_x > 0) || (m_blocs.back()->get_pos_on_grid().x != 7 && p_x < 0))
+        {
+            m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+        }
+      }
+
+      if (p_y != 0) // si on bouge vers le bas
+      {
+        if (m_blocs.back()->get_pos_on_grid().y < 16 && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
+        {
+            m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+            ofLog() << get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) ;
+        }
+        else
+        {
+            m_blocs.back()->set_bloc_lock(true);
+        }
+      }
+
     
-    m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+
+
+    
 
   }
 vector<Blocs *> Game::get_vecteur_blocs()
