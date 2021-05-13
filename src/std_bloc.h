@@ -25,6 +25,7 @@
         ofColor m_fill_color;
         ofColor m_line_color;
         ofShader m_shader;
+        ofTexture m_texture;
         int m_line_size;
         int m_bloc_size;
         bool m_block_lock;

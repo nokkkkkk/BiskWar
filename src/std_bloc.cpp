@@ -24,30 +24,35 @@
       m_fill_color = ofColor(255, 0, 0);
       m_line_color = ofColor(155, 0, 0);
       m_ambiant_color = ofVec3f(0.8f, 0.0f, 0.0f);
+      ofLoadImage(m_texture,"../../data/bois.jpg");
       break;
     case 1:
       m_bloc_char = 'G';
       m_fill_color = ofColor(0, 255, 0);
       m_line_color = ofColor(0, 155, 0);
       m_ambiant_color = ofVec3f(0.0f, 0.8f, 0.0f);
+      ofLoadImage(m_texture,"../../data/brique.jpg");
       break;
     case 2:
       m_bloc_char = 'B';
       m_fill_color = ofColor(0, 0, 255);
       m_line_color = ofColor(0, 0, 150);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.8f);
+      ofLoadImage(m_texture,"../../data/cailloux.jpg");
       break;
     case 3:
       m_bloc_char = 'Y';
       m_fill_color = ofColor(100, 100, 100);
       m_line_color = ofColor(50, 50, 50);
       m_ambiant_color = ofVec3f(0.5f, 0.3f, 0.5f);
+      ofLoadImage(m_texture,"../../data/planche.jpg");
       break;
     case 4:
       m_bloc_char = 'V';
       m_fill_color = ofColor(0, 0, 0);
       m_line_color = ofColor(50, 155, 50);
       m_ambiant_color = ofVec3f(0.1f, 0.2f, 0.2f);
+      ofLoadImage(m_texture,"../../data/terre.jpg");
       break;
     
     default: //Faut pas que ca arrive :)
@@ -84,6 +89,8 @@
 
     m_shader.begin();
 
+    m_texture.bind();
+
     ofFill();
     ofSetColor(m_fill_color);
     ofSetLineWidth(m_line_size);
@@ -94,6 +101,8 @@
     // ofDrawSphere(m_pos,m_bloc_size);
 
     m_shader.end();
+
+    m_texture.unbind();
 
   }
 
