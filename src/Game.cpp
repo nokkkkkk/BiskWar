@@ -126,21 +126,33 @@ void Game::verify_last_move_to_clear()
 }
 void Game::verify_all_grid_clear()
 {   
-//    int nb_blocs_lign = 0;
-//    bool get_out = false;
+   int nb_blocs_lign = 0;
+   bool get_out = false;
 
-//     for (unsigned int i = 0; i < nb_lignes; i++)
-//     {
-//     for (unsigned int y = 0; y < nb_col; y++)
-//     {
-//         while (get_out == false || ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
-//         {
-//             /* code */
-//         }
-        
-//     }
-
-
+    for (unsigned int i = 0; i < nb_lignes; i++)
+    {
+        for (unsigned int y = 0; y < nb_col; y++)
+        {
+            while (get_out == false || ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
+            {
+                if(m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
+                {
+                    nb_blocs_lign += 1;
+                }
+                else
+                {
+                    get_out = true;
+                    if(nb_blocs_lign > 3)
+                    {
+                        ofLog() << "EFFACER LES INDEX A SUIVRE...";
+                    }
+                }
+            }
+            nb_blocs_lign = 0;
+            get_out = false;
+            
+        }
+    }
 }
 
 
