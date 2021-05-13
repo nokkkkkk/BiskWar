@@ -104,15 +104,12 @@ void Game::verify_last_move_to_clear()
     {
         for (unsigned int i = 0; i < m_blocs.size(); i++)
         {
-            if (m_blocs[i]->get_pos_on_grid() == pos_on_grid_last_block)
-            {
-                m_blocs.erase(m_blocs.begin()+i);
-            }
             if (m_blocs[i]->get_pos_on_grid() == ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y + 1))
             {
                 m_blocs.erase(m_blocs.begin()+i);
             }
         }
+        m_blocs.pop_back();
         set_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y , '.');
         set_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y + 1, '.');
     }    
