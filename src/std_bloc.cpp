@@ -6,6 +6,7 @@
   }
   void Std_bloc::setup(bool p_block_depart)
   {
+
     m_close_true = false; //Est-ce que on doit detruire l'objet ?
     m_block_lock = p_block_depart;
     m_bloc_size = 25;
@@ -22,26 +23,31 @@
       m_bloc_char = 'R';
       m_fill_color = ofColor(255, 0, 0);
       m_line_color = ofColor(155, 0, 0);
+      m_ambiant_color = ofVec3f(0.8f, 0.0f, 0.0f);
       break;
     case 1:
       m_bloc_char = 'G';
       m_fill_color = ofColor(0, 255, 0);
       m_line_color = ofColor(0, 155, 0);
+      m_ambiant_color = ofVec3f(0.0f, 0.8f, 0.0f);
       break;
     case 2:
       m_bloc_char = 'B';
       m_fill_color = ofColor(0, 0, 255);
       m_line_color = ofColor(0, 0, 150);
+      m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.8f);
       break;
     case 3:
       m_bloc_char = 'Y';
       m_fill_color = ofColor(100, 100, 100);
       m_line_color = ofColor(50, 50, 50);
+      m_ambiant_color = ofVec3f(0.5f, 0.3f, 0.5f);
       break;
     case 4:
       m_bloc_char = 'V';
       m_fill_color = ofColor(0, 0, 0);
       m_line_color = ofColor(50, 155, 50);
+      m_ambiant_color = ofVec3f(0.1f, 0.2f, 0.2f);
       break;
     
     default: //Faut pas que ca arrive :)
@@ -51,15 +57,33 @@
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
       m_pos.x = (int)ofRandom(7) * -50 - 25; //On affiche la nouvelle image aleatoire sur X
-      m_pos.y = (int)ofRandom(16) * 50 + 25;
+      m_pos.y = ((int)ofRandom(15) + 1) * 50 + 25;
       m_pos_on_grid.x = (int)(m_pos.x / -50);
       m_pos_on_grid.y = (int)(m_pos.y / 50);
-
     }
+
+    //La lumières de chaque blocs
+      m_shader.load(
+    "shaderillum/phong_330_vs.glsl",
+    "shaderillum/phong_330_fs.glsl");
+      
+
   }
 
   void Std_bloc::show_obj()
   {
+
+    m_shader.begin();
+    m_shader.setUniform3f("color_ambient", m_ambiant_color);
+    m_shader.setUniform3f("color_diffuse",  0.1f, 0.2f, 0.4f);
+    m_shader.setUniform3f("color_specular", 0.2f, 0.2f, 0.4f);
+    m_shader.setUniform1f("brightness", 1.0f);
+    m_shader.setUniform1i("nb_light", 2);
+    m_shader.setUniform3f("light_position", glm::vec4(-2000.0f, -2000.0f, -1000.0f, 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+    m_shader.end();
+
+    m_shader.begin();
+
     ofFill();
     ofSetColor(m_fill_color);
     ofSetLineWidth(m_line_size);
@@ -67,7 +91,9 @@
     ofNoFill();
     ofSetColor(m_line_color);
     ofSetLineWidth(m_line_size);
-    ofDrawSphere(m_pos,m_bloc_size);
+    // ofDrawSphere(m_pos,m_bloc_size);
+
+    m_shader.end();
 
   }
 

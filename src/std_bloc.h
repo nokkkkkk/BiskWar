@@ -21,8 +21,10 @@
         //ATTRIBUTS PRIVÉS
         ofVec2f m_pos_on_grid;
         ofVec3f m_pos;
+        ofVec3f m_ambiant_color;
         ofColor m_fill_color;
         ofColor m_line_color;
+        ofShader m_shader;
         int m_line_size;
         int m_bloc_size;
         bool m_block_lock;
