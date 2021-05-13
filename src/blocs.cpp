@@ -22,6 +22,13 @@
     {
         return false;
     }
+    char Blocs::get_bloc_char() const
+    {
+        return '.';
+    }
+    void Blocs::set_bloc_char(char p_char_type) 
+    {
+    }
     void Blocs::set_bloc_lock(bool p_cond) 
     {
     }

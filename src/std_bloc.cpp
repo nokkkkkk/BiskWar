@@ -17,6 +17,7 @@
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
     m_pos.z = 0;
+    m_bloc_char = 'G';
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
       m_pos.x = (int)ofRandom(7) * -50 - 25; //On affiche la nouvelle image aleatoire sur X
@@ -59,4 +60,12 @@
   bool Std_bloc::get_bloc_lock() const
   {
     return m_block_lock;
+  }
+  char Std_bloc::get_bloc_char() const
+  {
+      return m_bloc_char;
+  }
+  void Std_bloc::set_bloc_char(char p_char_type) 
+  {
+    m_bloc_char = p_char_type;
   }

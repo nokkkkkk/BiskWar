@@ -104,7 +104,8 @@ void Game::verify_last_move_to_clear()
 
         for (unsigned int i = 0; i < m_blocs.size(); i++)
         {
-            if (m_blocs[i]->get_pos_on_grid() == ofVec2f(pos_grid_last_block.x , pos_grid_last_block.y + 1))
+            if (m_blocs[i]->get_pos_on_grid() == ofVec2f(pos_grid_last_block.x , pos_grid_last_block.y + 1) &&
+                m_blocs[i]->get_bloc_char() == m_blocs.back()->get_bloc_char())
             {
                 indice_to_clear.push_back(i);
             }
