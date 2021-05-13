@@ -14,6 +14,7 @@ private:
   Game game_on;
   ofLight lights;
   ofCamera cameras;
+  ofTexture sphere_bg;
   bool all_blocs_are_lock;
 
 public:

@@ -124,6 +124,24 @@ void Game::verify_last_move_to_clear()
 
 
 }
+void Game::verify_all_grid_clear()
+{   
+//    int nb_blocs_lign = 0;
+//    bool get_out = false;
+
+//     for (unsigned int i = 0; i < nb_lignes; i++)
+//     {
+//     for (unsigned int y = 0; y < nb_col; y++)
+//     {
+//         while (get_out == false || ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
+//         {
+//             /* code */
+//         }
+        
+//     }
+
+
+}
 
 
 vector<Blocs *> Game::get_vecteur_blocs()

@@ -8,12 +8,13 @@ void Application::setup()
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
   ofDisableArbTex();
+  ofLoadImage(sphere_bg,"../../data/textures/pinballlevel.jpg");
   game_on = *Factogame::get_game(1);
   all_blocs_are_lock = false;
 
   cameras.setPosition(0, 0, -1000);
   cameras.lookAt(ofVec3f(0, 0, 0));
-  lights.setPosition(0, 0, -1000);
+  lights.setPosition(0, 0, 100);
   lights.lookAt(ofVec3f(0, 0, 0));
   cameras.enableOrtho();
 }
@@ -29,8 +30,20 @@ void Application::draw()
   cameras.begin();
   lights.enable();
 
+  ofPushMatrix();
+  ofRotateY(ofGetFrameNum() * 0.1f);
+  ofRotateX(0);
+  sphere_bg.bind();
+  ofFill();
+  ofSetColor(200,200,200);
+  ofDrawSphere(0,0,5000);
+  sphere_bg.unbind();
+  ofPopMatrix();
+
+
   ofPushMatrix();//matrice de la partie joueur 1
-  ofTranslate(700, -500, 0); // Décalage de la matrice du joueur 1
+  ofScale(1.3,1.3,1.3);
+  ofTranslate(250, -450, 0); // Décalage de la matrice du joueur 1
 
     for (unsigned int i = 0; i < game_on.get_vecteur_blocs().size(); i++)
     {

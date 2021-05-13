@@ -24,6 +24,7 @@ public:
     std::vector<Blocs *> get_vecteur_blocs();
     char m_etat_table[nb_lignes][nb_col];
     void verify_last_move_to_clear();  
+    void verify_all_grid_clear();  
 
 private:  
 
