@@ -28,7 +28,14 @@ Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs) // coplien Copy and swap --
     game_clear_bloc[1].load("../../data/sound/clear2.mp3");
     game_clear_bloc[2].load("../../data/sound/clear3.mp3");
     indice_sound_clear = 0;
+    m_bloc_lock_sound.load("../../data/sound/bloclock.mp3");
+    m_bloc_lock_sound.setVolume(0.5);
     game_bg_music.play();
+
+    ofLoadImage(m_tex_lvl_up,"../../data/images/levelup.png");
+    m_toggle_level_up = false;
+
+    
 
         // set_block_from_pos_in_table(2,2,'W');
         
@@ -53,6 +60,21 @@ void Game::show_grid()
 }
 void Game::start_game()
 {
+}
+void Game::play_level_up()
+{
+    if (m_toggle_level_up == true)
+    {
+        ofFill();
+        ofSetColor(200, 200, 200);
+        m_tex_lvl_up.bind();
+        ofPushMatrix();
+            ofRotateYDeg(ofGetFrameNum() * 0.8f);
+            ofDrawSphere(ofVec3f(600, 300, 1000),250);
+        ofPopMatrix();
+        m_tex_lvl_up.unbind();
+
+    }
 }
 
 void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
@@ -105,6 +127,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
 
 void Game::verify_last_move_to_clear()
 {   
+    m_bloc_lock_sound.play();
     ofVec2f pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
     int serie_count = 0;
     vector<int> indice_to_clear{}; //Vector des position a supprimer
@@ -129,10 +152,12 @@ void Game::verify_last_move_to_clear()
                 if (indice_sound_clear == 2)
                 {
                     indice_sound_clear = 0;
+                    m_toggle_level_up = true;
                 }
                 else
                 {
                     indice_sound_clear += 1;
+                    m_toggle_level_up = false;
                 }
             }
         }

@@ -53,6 +53,8 @@ void Application::draw()
 
   ofPopMatrix();
 
+  game_on.play_level_up();
+
 
   cameras.disableOrtho();
   lights.disable();

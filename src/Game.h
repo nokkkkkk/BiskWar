@@ -25,6 +25,7 @@ public:
     char m_etat_table[nb_lignes][nb_col];
     void verify_last_move_to_clear();  
     void verify_all_grid_clear();  
+    void play_level_up();  
 
 private:  
 
@@ -34,6 +35,11 @@ private:
   ofSoundPlayer  game_bg_music;
   ofSoundPlayer  game_clear_bloc[3];
   int indice_sound_clear;
+  ofSoundPlayer  m_bloc_lock_sound;
+
+
+  ofTexture m_tex_lvl_up;
+  bool m_toggle_level_up;
 };
 
 
