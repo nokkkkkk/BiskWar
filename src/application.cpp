@@ -7,7 +7,7 @@ void Application::setup()
 {
   ofSetWindowTitle("BISK WAR 1.0");
   ofSetFrameRate(60);
-
+  ofDisableArbTex();
   game_on = *Factogame::get_game(1);
   all_blocs_are_lock = false;
 

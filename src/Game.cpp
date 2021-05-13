@@ -37,6 +37,7 @@ void Game::show_grid()
         for (unsigned int y = 0; y < nb_col; y++)
         {
             x_pos = -(y * m_size_grid_slot);
+            ofNoFill();
             ofSetColor(20,20,250);
             ofSetLineWidth(1);
             ofDrawRectangle(x_pos, y_pos, -m_size_grid_slot,m_size_grid_slot);
