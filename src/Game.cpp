@@ -23,6 +23,12 @@ Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs) // coplien Copy and swap --
             m_etat_table[i][y] = '.';
         }
     }
+    game_bg_music.load("../../data/music/fast.mp3");
+    game_clear_bloc[0].load("../../data/sound/clear1.mp3");
+    game_clear_bloc[1].load("../../data/sound/clear2.mp3");
+    game_clear_bloc[2].load("../../data/sound/clear3.mp3");
+    indice_sound_clear = 0;
+    game_bg_music.play();
 
         // set_block_from_pos_in_table(2,2,'W');
         
@@ -119,8 +125,18 @@ void Game::verify_last_move_to_clear()
             {
                 set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y + i + 1, '.');
                 m_blocs.erase(m_blocs.begin() + indice_to_clear[i]);
+                game_clear_bloc[indice_sound_clear].play();
+                if (indice_sound_clear == 2)
+                {
+                    indice_sound_clear = 0;
+                }
+                else
+                {
+                    indice_sound_clear += 1;
+                }
             }
         }
+        verify_all_grid_clear();
 
 
 }
@@ -133,7 +149,7 @@ void Game::verify_all_grid_clear()
     {
         for (unsigned int y = 0; y < nb_col; y++)
         {
-            while (get_out == false || ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
+            while (get_out == false && ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
             {
                 if(m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
                 {

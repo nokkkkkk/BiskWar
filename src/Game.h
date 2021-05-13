@@ -31,6 +31,9 @@ private:
    ofColor m_grid_color = (25,25,255);
    int m_size_grid_slot;
   std::vector<Blocs *> m_blocs; // Déclaration d'un vecteur de pointeur pour Polymorphisme   
+  ofSoundPlayer  game_bg_music;
+  ofSoundPlayer  game_clear_bloc[3];
+  int indice_sound_clear;
 };
 
 

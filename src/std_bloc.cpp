@@ -62,7 +62,7 @@
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
       m_pos.x = (int)ofRandom(7) * -50 - 25; //On affiche la nouvelle image aleatoire sur X
-      m_pos.y = ((int)ofRandom(15) + 1) * 50 + 25;
+      m_pos.y = ((int)ofRandom(12) + 4) * 50 + 25;
       m_pos_on_grid.x = (int)(m_pos.x / -50);
       m_pos_on_grid.y = (int)(m_pos.y / 50);
     }
