@@ -86,7 +86,6 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
         if (m_blocs.back()->get_pos_on_grid().y < 16 && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
         {
             m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
-            ofLog() << get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) ;
         }
         //SINON on lock le bloc
         else
@@ -94,13 +93,33 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             m_blocs.back()->set_bloc_lock(true);
         }
     }
-    verify_last_move_to_clear();
   }
 
+
 void Game::verify_last_move_to_clear()
-{
+{   
+    ofVec2f pos_on_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
+    ofLog() << get_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y + 1);
+    if(get_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y + 1) == 'G')
+    {
+        for (unsigned int i = 0; i < m_blocs.size(); i++)
+        {
+            if (m_blocs[i]->get_pos_on_grid() == pos_on_grid_last_block)
+            {
+                m_blocs.erase(m_blocs.begin()+i);
+            }
+            if (m_blocs[i]->get_pos_on_grid() == ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y + 1))
+            {
+                m_blocs.erase(m_blocs.begin()+i);
+            }
+        }
+        set_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y , '.');
+        set_block_from_pos_in_table(pos_on_grid_last_block.x, pos_on_grid_last_block.y + 1, '.');
+    }    
 
 }
+
+
 vector<Blocs *> Game::get_vecteur_blocs()
 {
     return m_blocs;

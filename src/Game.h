@@ -23,9 +23,9 @@ public:
     void move_obj(int p_x, int p_y, int p_z, int p_button);
     std::vector<Blocs *> get_vecteur_blocs();
     char m_etat_table[nb_lignes][nb_col];
+    void verify_last_move_to_clear();  
 
-private:
-  void verify_last_move_to_clear();    
+private:  
 
    ofColor m_grid_color = (25,25,255);
    int m_size_grid_slot;

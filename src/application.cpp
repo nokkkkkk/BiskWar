@@ -65,6 +65,7 @@ void Application::update()
   }
   if (all_blocs_are_lock)
   {
+    game_on.verify_last_move_to_clear();
     game_on.add_bloc(1);
   }
   if (ofGetFrameNum() % 60 == 0)
