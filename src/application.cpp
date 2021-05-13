@@ -60,7 +60,7 @@ void Application::update()
     }
     else
     {
-      game_on.set_block_from_pos_in_table(game_on.get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on.get_vecteur_blocs()[i]->get_pos_on_grid().y, 'G');
+      game_on.set_block_from_pos_in_table(game_on.get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on.get_vecteur_blocs()[i]->get_pos_on_grid().y, game_on.get_vecteur_blocs()[i]->get_bloc_char());
     }
   }
   if (all_blocs_are_lock)

@@ -9,15 +9,45 @@
     m_close_true = false; //Est-ce que on doit detruire l'objet ?
     m_block_lock = p_block_depart;
     m_bloc_size = 25;
-    m_fill_color = ofColor(255, 50, 0);
-    m_line_color = ofColor(50, 155, 50);
     m_line_size = 1;
     m_pos.x = -25;
     m_pos.y = 25;
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
     m_pos.z = 0;
-    m_bloc_char = 'G';
+    int tempo_int_char = ofRandom(5);
+    switch (tempo_int_char)
+    {
+    case 0:
+      m_bloc_char = 'R';
+      m_fill_color = ofColor(255, 0, 0);
+      m_line_color = ofColor(155, 0, 0);
+      break;
+    case 1:
+      m_bloc_char = 'G';
+      m_fill_color = ofColor(0, 255, 0);
+      m_line_color = ofColor(0, 155, 0);
+      break;
+    case 2:
+      m_bloc_char = 'B';
+      m_fill_color = ofColor(0, 0, 255);
+      m_line_color = ofColor(0, 0, 150);
+      break;
+    case 3:
+      m_bloc_char = 'Y';
+      m_fill_color = ofColor(100, 100, 100);
+      m_line_color = ofColor(50, 50, 50);
+      break;
+    case 4:
+      m_bloc_char = 'V';
+      m_fill_color = ofColor(0, 0, 0);
+      m_line_color = ofColor(50, 155, 50);
+      break;
+    
+    default: //Faut pas que ca arrive :)
+      m_bloc_char = '.';
+      break;
+    }
     if (m_block_lock) //Si le block est lock au setup, on le place dans le tableau.
     {
       m_pos.x = (int)ofRandom(7) * -50 - 25; //On affiche la nouvelle image aleatoire sur X
