@@ -172,17 +172,16 @@ void Game::verify_last_move_to_clear()
 
 }
 void Game::verify_all_grid_clear()
-{   
-   int nb_blocs_lign = 0;
-   bool get_out = false;
+{  
+    vector<ofVec2f> indice_to_clear{}; //Vector des position a supprimer 
+    ofVec2f pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
+    int nb_blocs_lign = 0;
+    bool get_out = false;
 
     for (unsigned int i = 0; i < nb_lignes; i++)
     {
         for (unsigned int y = 0; y < nb_col; y++)
         {
-
-               
-
             if (m_etat_table[i][y] != '.')
             {
                 while (get_out == false && ((y + nb_blocs_lign) <= (nb_col - 1))) //6 doit etre valider.
@@ -196,20 +195,35 @@ void Game::verify_all_grid_clear()
                         get_out = true;
                         if(nb_blocs_lign >= 3)
                         {
-                            
+                             for (unsigned int z = 0; z <= nb_blocs_lign; z++)
+                                {
+                                    indice_to_clear.push_back(ofVec2f((y + z), i));
+                                    ofLog() << indice_to_clear.back(); 
+                                }
                             ofLog() << "4 blocs ou plus en lignes : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
-                            // ofLog() << nb_blocs_lign;
-                            // ofLog() << "EFFACER LES INDEX A SUIVRE...";
                             y = y + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
                         }
                         nb_blocs_lign = 0;
                     }
 
                 }
-
-            // ofLog() << m_blocs.size() << "(" << y << "," << i << ") : " << m_etat_table[i][y]  << "nb bloc en ligne"<< nb_blocs_lign;
             }
-
+            // for (unsigned int i = 0; i < indice_to_clear.size(); i++)
+            //     {
+            //         set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y + i + 1, '.');
+            //         m_blocs.erase(m_blocs.begin() + indice_to_clear[i]);
+            //         game_clear_bloc[indice_sound_clear].play();
+            //         if (indice_sound_clear == 2)
+            //         {
+            //             indice_sound_clear = 0;
+            //             m_toggle_level_up = true;
+            //         }
+            //         else
+            //         {
+            //             indice_sound_clear += 1;
+            //             m_toggle_level_up = false;
+            //         }
+            //     }
             get_out = false;
             
         }
