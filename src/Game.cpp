@@ -128,7 +128,13 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
 void Game::verify_last_move_to_clear()
 {   
     m_bloc_lock_sound.play();
-    ofVec2f pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
+    ofVec2f pos_grid_last_block;
+    // if (m_blocs.size() < 0)
+    // {
+            pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
+    // }
+
+
     int serie_count = 0;
     vector<int> indice_to_clear{}; //Vector des position a supprimer
 
@@ -174,22 +180,40 @@ void Game::verify_all_grid_clear()
     {
         for (unsigned int y = 0; y < nb_col; y++)
         {
-            while (get_out == false && ((i + nb_blocs_lign) >= (nb_col - 1))) //6 doit etre valider.
+
+               
+
+            if (m_etat_table[i][y] != '.')
             {
-                if(m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
+                // ofLog() << i << y;
+                // ofLog() << m_etat_table[i][y];
+                // ofLog() << i << (y + 1 + nb_blocs_lign);
+                // ofLog() << m_etat_table[i][y + 1 + nb_blocs_lign];
+                while (get_out == false && ((y + nb_blocs_lign) <= (nb_col - 1))) //6 doit etre valider.
                 {
-                    nb_blocs_lign += 1;
-                }
-                else
-                {
-                    get_out = true;
-                    if(nb_blocs_lign > 3)
+                    if (m_etat_table[i][y] == m_etat_table[i][y + 1 + nb_blocs_lign])
                     {
-                        ofLog() << "EFFACER LES INDEX A SUIVRE...";
+                        nb_blocs_lign += 1;
                     }
+                    else
+                    {
+                        get_out = true;
+                        if(nb_blocs_lign >= 3)
+                        {
+                            
+                            ofLog() << "4 blocs ou plus en lignes : " << "(" << y << "," << i << ")";
+                            // ofLog() << nb_blocs_lign;
+                            // ofLog() << "EFFACER LES INDEX A SUIVRE...";
+                        }
+
+                        nb_blocs_lign = 0;
+                    }
+
                 }
+
+            // ofLog() << m_blocs.size() << "(" << y << "," << i << ") : " << m_etat_table[i][y]  << "nb bloc en ligne"<< nb_blocs_lign;
             }
-            nb_blocs_lign = 0;
+
             get_out = false;
             
         }
