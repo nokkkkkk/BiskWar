@@ -185,10 +185,6 @@ void Game::verify_all_grid_clear()
 
             if (m_etat_table[i][y] != '.')
             {
-                // ofLog() << i << y;
-                // ofLog() << m_etat_table[i][y];
-                // ofLog() << i << (y + 1 + nb_blocs_lign);
-                // ofLog() << m_etat_table[i][y + 1 + nb_blocs_lign];
                 while (get_out == false && ((y + nb_blocs_lign) <= (nb_col - 1))) //6 doit etre valider.
                 {
                     if (m_etat_table[i][y] == m_etat_table[i][y + 1 + nb_blocs_lign])
@@ -201,11 +197,11 @@ void Game::verify_all_grid_clear()
                         if(nb_blocs_lign >= 3)
                         {
                             
-                            ofLog() << "4 blocs ou plus en lignes : " << "(" << y << "," << i << ")";
+                            ofLog() << "4 blocs ou plus en lignes : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
                             // ofLog() << nb_blocs_lign;
                             // ofLog() << "EFFACER LES INDEX A SUIVRE...";
+                            y = y + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
                         }
-
                         nb_blocs_lign = 0;
                     }
 
