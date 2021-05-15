@@ -127,46 +127,46 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
 
 void Game::verify_last_move_to_clear()
 {   
-    m_bloc_lock_sound.play();
-    ofVec2f pos_grid_last_block;
-    // if (m_blocs.size() < 0)
-    // {
-            pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
-    // }
+    // m_bloc_lock_sound.play();
+    // ofVec2f pos_grid_last_block;
+    // // if (m_blocs.size() < 0)
+    // // {
+    //         pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
+    // // }
 
 
-    int serie_count = 0;
-    vector<int> indice_to_clear{}; //Vector des position a supprimer
+    // int serie_count = 0;
+    // vector<int> indice_to_clear{}; //Vector des position a supprimer
 
-        for (unsigned int i = 0; i < m_blocs.size(); i++)
-        {
-            if (m_blocs[i]->get_pos_on_grid() == ofVec2f(pos_grid_last_block.x , pos_grid_last_block.y + 1) &&
-                m_blocs[i]->get_bloc_char() == m_blocs.back()->get_bloc_char())
-            {
-                indice_to_clear.push_back(i);
-            }
-        }
-        if (indice_to_clear.size() >= 1)
-        {
-            m_blocs.pop_back();
-            set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y, '.');
-            for (unsigned int i = 0; i < indice_to_clear.size(); i++)
-            {
-                set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y + i + 1, '.');
-                m_blocs.erase(m_blocs.begin() + indice_to_clear[i]);
-                game_clear_bloc[indice_sound_clear].play();
-                if (indice_sound_clear == 2)
-                {
-                    indice_sound_clear = 0;
-                    m_toggle_level_up = true;
-                }
-                else
-                {
-                    indice_sound_clear += 1;
-                    m_toggle_level_up = false;
-                }
-            }
-        }
+    //     for (unsigned int i = 0; i < m_blocs.size(); i++)
+    //     {
+    //         if (m_blocs[i]->get_pos_on_grid() == ofVec2f(pos_grid_last_block.x , pos_grid_last_block.y + 1) &&
+    //             m_blocs[i]->get_bloc_char() == m_blocs.back()->get_bloc_char())
+    //         {
+    //             indice_to_clear.push_back(i);
+    //         }
+    //     }
+    //     if (indice_to_clear.size() >= 1)
+    //     {
+    //         m_blocs.pop_back();
+    //         set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y, '.');
+    //         for (unsigned int i = 0; i < indice_to_clear.size(); i++)
+    //         {
+    //             set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y + i + 1, '.');
+    //             m_blocs.erase(m_blocs.begin() + indice_to_clear[i]);
+    //             game_clear_bloc[indice_sound_clear].play();
+    //             if (indice_sound_clear == 2)
+    //             {
+    //                 indice_sound_clear = 0;
+    //                 m_toggle_level_up = true;
+    //             }
+    //             else
+    //             {
+    //                 indice_sound_clear += 1;
+    //                 m_toggle_level_up = false;
+    //             }
+    //         }
+    //     }
         verify_all_grid_clear();
 
 
@@ -174,10 +174,9 @@ void Game::verify_last_move_to_clear()
 void Game::verify_all_grid_clear()
 {  
     vector<ofVec2f> indice_to_clear{}; //Vector des position a supprimer 
-    ofVec2f pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
     int nb_blocs_lign = 0;
     bool get_out = false;
-
+    //Parcour du tableau d'état pour trouver les ligne horizontales de plus de 4 blocs
     for (unsigned int i = 0; i < nb_lignes; i++)
     {
         for (unsigned int y = 0; y < nb_col; y++)
@@ -200,7 +199,7 @@ void Game::verify_all_grid_clear()
                                 indice_to_clear.push_back(ofVec2f((y + z), i));
                                 ofLog() << indice_to_clear.back(); 
                             }
-                            ofLog() << "4 blocs ou plus en lignes : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
+                            ofLog() << "4 blocs ou plus en lignes Horizontale : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
                             y = y + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
                         }
                         nb_blocs_lign = 0;
@@ -211,6 +210,46 @@ void Game::verify_all_grid_clear()
             }
         }
     }
+    //Parcour du tableau d'état pour trouver les ligne verticales de plus de 4 blocs
+    for (unsigned int i = 0; i < nb_lignes; i++)
+    {
+        for (unsigned int y = 0; y < nb_col; y++)
+        {
+            if (m_etat_table[i][y] != '.')
+            {
+                ofLog() << i + nb_blocs_lign << "<=" << nb_blocs_lign - 1;
+                while (get_out == false && ((i + nb_blocs_lign) <= (nb_lignes - 1))) //16 doit etre valider.
+                {
+                    if (m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
+                    {
+                        nb_blocs_lign += 1;
+                    }
+                    else
+                    {
+                        get_out = true;
+                        if(nb_blocs_lign >= 3)
+                        {
+                            for (unsigned int z = 0; z <= nb_blocs_lign; z++)
+                            {
+                                indice_to_clear.push_back(ofVec2f(y, (i + z)));
+                                ofLog() << indice_to_clear.back(); 
+                            }
+                            ofLog() << "4 blocs ou plus en lignes Verticales : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
+                            i = i + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
+                        }
+                        nb_blocs_lign = 0;
+                    }
+
+                }
+                get_out = false;
+            }
+        }
+    }
+
+
+
+
+
 
     for (unsigned int i = 0; i < indice_to_clear.size(); i++) // Parcour de tous les indices à supprimer dans le tableau d'état et dans le vector d'objet 
     {
