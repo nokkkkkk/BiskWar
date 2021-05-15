@@ -74,10 +74,10 @@ void Application::update()
     {
       all_blocs_are_lock = false;
     }
-    else
-    {
-      // game_on.set_block_from_pos_in_table(game_on.get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on.get_vecteur_blocs()[i]->get_pos_on_grid().y, game_on.get_vecteur_blocs()[i]->get_bloc_char());
-    }
+    // else
+    // {
+    //   // game_on.set_block_from_pos_in_table(game_on.get_vecteur_blocs()[i]->get_pos_on_grid().x, game_on.get_vecteur_blocs()[i]->get_pos_on_grid().y, game_on.get_vecteur_blocs()[i]->get_bloc_char());
+    // }
   }
   if (all_blocs_are_lock)
   {
@@ -87,7 +87,7 @@ void Application::update()
   if (ofGetFrameNum() % 60 == 0)
     game_on.move_obj(0, 50, 0, 0);
 
-      game_on.show_state_table();
+      // game_on.show_state_table();
 }
 void Application::keyPressed(int key)
 {

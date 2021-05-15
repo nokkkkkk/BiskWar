@@ -119,7 +119,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
         for (unsigned int y = 0; y < m_blocs.size(); y++) //Pour tous les blocs, 
         {
             //Si nous ne sommes pas au fond ou en colision avec un autre bloc en dessous : On bouge
-            if (m_blocs[y]->get_pos_on_grid().y < (nb_lignes - 1) && get_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y + 1) == '.')
+            if (m_blocs[y]->get_pos_on_grid().y < (nb_lignes - 1) && get_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y + 1) == '.'  && m_blocs[y]->get_bloc_virus() ==  false)
             {
                 m_blocs[y]->move_obj(p_x, p_y, p_z, p_button);
                 set_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y,m_blocs[y]->get_bloc_char());
@@ -129,6 +129,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             else
             {
                 m_blocs[y]->set_bloc_lock(true);
+                set_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y,m_blocs[y]->get_bloc_char());
             }
         }
 
@@ -142,6 +143,7 @@ void Game::verify_who_fall()
         {
             int x = m_blocs[i]->get_pos_on_grid().x;
             int y = m_blocs[i]->get_pos_on_grid().y + 1;
+            ofLog() << m_blocs[i]->get_bloc_virus();
             if (m_etat_table[x][y]   == '.')
             {
                 m_blocs[i]->set_bloc_lock(false);
