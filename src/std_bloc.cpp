@@ -16,8 +16,8 @@
     m_pos_on_grid.x = (int)(m_pos.x / -50);
     m_pos_on_grid.y = (int)(m_pos.y / 50);
     m_pos.z = 0;
-    int tempo_int_char = 0;
-    // int tempo_int_char = ofRandom(5);
+    // int tempo_int_char = 0;
+    int tempo_int_char = ofRandom(5);
     switch (tempo_int_char)
     {
     case 0:

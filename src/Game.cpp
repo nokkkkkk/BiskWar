@@ -100,7 +100,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
     if (p_x != 0) //Si on bouge de gauche a droite
     {
         //Si nous ne sommes pas au bord du tableau
-        if ((m_blocs.back()->get_pos_on_grid().x != 0 && p_x > 0) || (m_blocs.back()->get_pos_on_grid().x != 7 && p_x < 0))
+        if ((m_blocs.back()->get_pos_on_grid().x != 0 && p_x > 0) || (m_blocs.back()->get_pos_on_grid().x != (nb_col - 1) && p_x < 0))
         {
             if(bloc_side_can_move)
             {
@@ -112,7 +112,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
     if (p_y != 0) // si on bouge vers le bas
     {
         //Si nous ne sommes pas au fond ou en colision avec un autre bloc en dessous : On bouge
-        if (m_blocs.back()->get_pos_on_grid().y < 16 && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
+        if (m_blocs.back()->get_pos_on_grid().y < (nb_lignes - 1) && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
         {
             m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
         }
@@ -218,7 +218,7 @@ void Game::verify_all_grid_clear()
             if (m_etat_table[i][y] != '.')
             {
                 ofLog() << i + nb_blocs_lign << "<=" << nb_blocs_lign - 1;
-                while (get_out == false && ((i + nb_blocs_lign) <= (nb_lignes - 1))) //16 doit etre valider.
+                while (get_out == false && ((i + nb_blocs_lign) <= (nb_lignes - 1)))
                 {
                     if (m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
                     {
@@ -245,12 +245,6 @@ void Game::verify_all_grid_clear()
             }
         }
     }
-
-
-
-
-
-
     for (unsigned int i = 0; i < indice_to_clear.size(); i++) // Parcour de tous les indices à supprimer dans le tableau d'état et dans le vector d'objet 
     {
         ofLog() << i;

@@ -8,7 +8,7 @@
 
 
 const int nb_lignes = 17;
-const int nb_col = 8;
+const int nb_col = 15;
 class Game
 {
 public: 
