@@ -83,17 +83,21 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
     if (p_x < 0) // Si on bouge vers la droite...
     {
         //Si aucun bloc ne se trouve à droite, on peut bouger. 
-        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y) == '.')
+        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y) == '.' && m_blocs.back()->get_pos_on_grid().x + 1 < nb_col )
         {
             bloc_side_can_move = true;
+            set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y,m_blocs.back()->get_bloc_char());
+            set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y, '.');
         }
     }
     if (p_x > 0) // Si on bouge vers la gauche...
     {
         //Si aucun bloc ne se trouve à gauche, on peut bouger. 
-        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y) == '.')
+        if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y) == '.'  && m_blocs.back()->get_pos_on_grid().x > 0)
         {
             bloc_side_can_move = true;
+            set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y,m_blocs.back()->get_bloc_char());
+            set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y, '.');
         }
     }
 
@@ -105,6 +109,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             if(bloc_side_can_move)
             {
                 m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+
             }
         }
     }
