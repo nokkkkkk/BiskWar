@@ -24,6 +24,8 @@
         virtual const ofVec2f get_pos_on_grid() const;
         virtual bool get_bloc_lock() const;
         virtual void set_bloc_lock(bool p_cond);
+        virtual bool get_bloc_virus() const;
+        virtual void set_bloc_virus(bool p_cond);
         virtual char get_bloc_char() const;
         virtual void set_bloc_char(char p_char_type);
 

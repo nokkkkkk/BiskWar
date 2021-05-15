@@ -22,14 +22,21 @@
     {
         return false;
     }
+    void Blocs::set_bloc_lock(bool p_cond) 
+    {
+    }
+    bool Blocs::get_bloc_virus() const 
+    {
+        return false;
+    }
+    void Blocs::set_bloc_virus(bool p_cond) 
+    {
+    }
     char Blocs::get_bloc_char() const
     {
         return '.';
     }
     void Blocs::set_bloc_char(char p_char_type) 
-    {
-    }
-    void Blocs::set_bloc_lock(bool p_cond) 
     {
     }
     ofVec2f const Blocs::get_pos_on_grid() const 

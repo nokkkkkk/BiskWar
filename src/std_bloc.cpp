@@ -9,6 +9,7 @@
 
     m_close_true = false; //Est-ce que on doit detruire l'objet ?
     m_block_lock = p_block_depart;
+    m_block_is_virus = p_block_depart;
     m_bloc_size = 25;
     m_line_size = 1;
     m_pos.x = -25;
@@ -132,3 +133,11 @@
   {
     m_bloc_char = p_char_type;
   }
+    bool Std_bloc::get_bloc_virus() const 
+    {
+        return m_block_is_virus;
+    }
+    void Std_bloc::set_bloc_virus(bool p_cond) 
+    {
+      m_block_is_virus = p_cond;
+    }

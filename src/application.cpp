@@ -66,6 +66,7 @@ void Application::draw()
 }
 void Application::update()
 {
+
   all_blocs_are_lock = true;
   for (unsigned int i = 0; i < game_on.get_vecteur_blocs().size(); i++)
   {
@@ -80,7 +81,7 @@ void Application::update()
   }
   if (all_blocs_are_lock)
   {
-    game_on.verify_last_move_to_clear();
+    game_on.verify_all_grid_clear();
     game_on.add_bloc(1);
   }
   if (ofGetFrameNum() % 60 == 0)

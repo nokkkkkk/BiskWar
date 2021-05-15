@@ -111,63 +111,37 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
 
     if (p_y != 0) // si on bouge vers le bas
     {
-        //Si nous ne sommes pas au fond ou en colision avec un autre bloc en dessous : On bouge
-        if (m_blocs.back()->get_pos_on_grid().y < (nb_lignes - 1) && get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y + 1) == '.')
+        for (unsigned int y = 0; y < m_blocs.size(); y++) //Pour tous les blocs, 
         {
-            m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+            //Si nous ne sommes pas au fond ou en colision avec un autre bloc en dessous : On bouge
+            if (m_blocs[y]->get_pos_on_grid().y < (nb_lignes - 1) && get_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y + 1) == '.')
+            {
+                m_blocs[y]->move_obj(p_x, p_y, p_z, p_button);
+                set_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y,m_blocs[y]->get_bloc_char());
+                set_block_from_pos_in_table(m_blocs[y]->get_pos_on_grid().x, m_blocs[y]->get_pos_on_grid().y - 1, '.');
+            }
+            //SINON on lock le bloc
+            else
+            {
+                m_blocs[y]->set_bloc_lock(true);
+            }
         }
-        //SINON on lock le bloc
-        else
-        {
-            m_blocs.back()->set_bloc_lock(true);
-        }
+
     }
   }
 
 
-void Game::verify_last_move_to_clear()
+void Game::verify_who_fall()
 {   
-    // m_bloc_lock_sound.play();
-    // ofVec2f pos_grid_last_block;
-    // // if (m_blocs.size() < 0)
-    // // {
-    //         pos_grid_last_block = ofVec2f(m_blocs.back()->get_pos_on_grid().x , m_blocs.back()->get_pos_on_grid().y);
-    // // }
-
-
-    // int serie_count = 0;
-    // vector<int> indice_to_clear{}; //Vector des position a supprimer
-
-    //     for (unsigned int i = 0; i < m_blocs.size(); i++)
-    //     {
-    //         if (m_blocs[i]->get_pos_on_grid() == ofVec2f(pos_grid_last_block.x , pos_grid_last_block.y + 1) &&
-    //             m_blocs[i]->get_bloc_char() == m_blocs.back()->get_bloc_char())
-    //         {
-    //             indice_to_clear.push_back(i);
-    //         }
-    //     }
-    //     if (indice_to_clear.size() >= 1)
-    //     {
-    //         m_blocs.pop_back();
-    //         set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y, '.');
-    //         for (unsigned int i = 0; i < indice_to_clear.size(); i++)
-    //         {
-    //             set_block_from_pos_in_table(pos_grid_last_block.x, pos_grid_last_block.y + i + 1, '.');
-    //             m_blocs.erase(m_blocs.begin() + indice_to_clear[i]);
-    //             game_clear_bloc[indice_sound_clear].play();
-    //             if (indice_sound_clear == 2)
-    //             {
-    //                 indice_sound_clear = 0;
-    //                 m_toggle_level_up = true;
-    //             }
-    //             else
-    //             {
-    //                 indice_sound_clear += 1;
-    //                 m_toggle_level_up = false;
-    //             }
-    //         }
-    //     }
-        verify_all_grid_clear();
+        for (unsigned int i = 0; i < m_blocs.size(); i++)
+        {
+            int x = m_blocs[i]->get_pos_on_grid().x;
+            int y = m_blocs[i]->get_pos_on_grid().y + 1;
+            if (m_etat_table[x][y]   == '.')
+            {
+                m_blocs[i]->set_bloc_lock(false);
+            }
+        }
 
 
 }
