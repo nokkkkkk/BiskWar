@@ -84,7 +84,7 @@ void Application::update()
     game_on.verify_all_grid_clear();
     game_on.add_bloc(1);
   }
-  if (ofGetFrameNum() % 60 == 0)
+  if (ofGetFrameNum() % 20 == 0)
     game_on.move_obj(0, 50, 0, 0);
 
       // game_on.show_state_table();

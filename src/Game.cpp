@@ -69,7 +69,7 @@ void Game::play_level_up()
         ofSetColor(200, 200, 200);
         m_tex_lvl_up.bind();
         ofPushMatrix();
-            ofRotateYDeg(ofGetFrameNum() * 0.8f);
+            ofRotateYDeg(ofGetFrameNum() * -2.0f);
             ofDrawSphere(ofVec3f(600, 300, 1000),250);
         ofPopMatrix();
         m_tex_lvl_up.unbind();
