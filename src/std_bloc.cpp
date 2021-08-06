@@ -18,7 +18,7 @@
     m_pos_on_grid.y = (int)(m_pos.y / 50);
     m_pos.z = 0;
     // int tempo_int_char = 0;
-    int tempo_int_char = ofRandom(5);
+    int tempo_int_char = ofRandom(6);
     switch (tempo_int_char)
     {
     case 0:
@@ -26,7 +26,7 @@
       m_fill_color = ofColor(255, 0, 0);
       m_line_color = ofColor(155, 0, 0);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/bois.jpg");
+      ofLoadImage(m_texture,"../../data/textures/cailloux.jpg");
       break;
     case 1:
       m_bloc_char = 'G';
@@ -40,7 +40,7 @@
       m_fill_color = ofColor(0, 0, 255);
       m_line_color = ofColor(0, 0, 150);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/cailloux.jpg");
+      ofLoadImage(m_texture,"../../data/textures/bois.jpg");
       break;
     case 3:
       m_bloc_char = 'Y';
@@ -51,6 +51,13 @@
       break;
     case 4:
       m_bloc_char = 'V';
+      m_fill_color = ofColor(0, 0, 0);
+      m_line_color = ofColor(50, 155, 50);
+      m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
+      ofLoadImage(m_texture,"../../data/textures/terre.jpg");
+      break;
+    case 5:
+      m_bloc_char = 'P';
       m_fill_color = ofColor(0, 0, 0);
       m_line_color = ofColor(50, 155, 50);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);

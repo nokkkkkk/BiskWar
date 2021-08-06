@@ -267,6 +267,7 @@ void Game::show_state_table()
         {
             ligne += m_etat_table[i][y];
         }
+        ofLog() << ligne;
         ligne = "";
     }
 }
