@@ -6,6 +6,7 @@
   }
   void Virus_bloc::setup(bool p_block_depart)
   {
+
     m_close_true = false; //Est-ce que on doit detruire l'objet ?
     m_block_lock = p_block_depart;
     m_block_is_virus = p_block_depart;
@@ -80,27 +81,27 @@
   void Virus_bloc::show_obj()
   {
 
-    ofEnableLighting();
-    m_shader.begin();
-    m_shader.setUniform3f("color_ambient", m_ambiant_color);
-    m_shader.setUniform3f("color_diffuse",  0.1f, 0.2f, 0.4f);
-    m_shader.setUniform3f("color_specular", 0.2f, 0.2f, 0.4f);
-    m_shader.setUniform1f("brightness", 1.0f);
-    m_shader.setUniform1i("nb_light", 2);
-    m_shader.setUniform3f("light_position", glm::vec4(-2000.0f, -2000.0f, -1000.0f, 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-    m_shader.end();
+    // ofEnableLighting();
+    // m_shader.begin();
+    // m_shader.setUniform3f("color_ambient", m_ambiant_color);
+    // m_shader.setUniform3f("color_diffuse",  0.1f, 0.2f, 0.4f);
+    // m_shader.setUniform3f("color_specular", 0.2f, 0.2f, 0.4f);
+    // m_shader.setUniform1f("brightness", 1.0f);
+    // m_shader.setUniform1i("nb_light", 2);
+    // m_shader.setUniform3f("light_position", glm::vec4(-2000.0f, -2000.0f, -1000.0f, 0.0f) * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+    // m_shader.end();
 
-    m_shader.begin();
+    // m_shader.begin();
 
-    m_texture.bind();
+    // m_texture.bind();
 
-    ofFill();
+    // ofFill();
     // ofDrawSphere(m_pos,m_bloc_size);
     m_virus.drawFaces();
 
-    m_texture.unbind();
-    m_shader.end();
-    ofDisableLighting();
+    // m_texture.unbind();
+    // m_shader.end();
+    // ofDisableLighting();
 
 
 

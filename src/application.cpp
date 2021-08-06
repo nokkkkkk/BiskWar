@@ -11,7 +11,7 @@ void Application::setup()
   ofLoadImage(sphere_bg,"../../data/textures/pinballlevel.jpg");
   game_on = *Factogame::get_game(1);
   all_blocs_are_lock = false;
-
+  // pilltest.loadModel("BW.obj");
   cameras.setPosition(0, 0, -1000);
   cameras.lookAt(ofVec3f(0, 0, 0));
   lights.setPosition(0, 0, 100);
@@ -29,6 +29,7 @@ void Application::draw()
   cameras.setVFlip(true);
   cameras.begin();
   lights.enable();
+  // pilltest.drawFaces();
 
   ofPushMatrix();
   ofRotateY(ofGetFrameNum() * 0.1f);
@@ -67,6 +68,7 @@ void Application::draw()
 void Application::update()
 {
 
+  game_on.show_state_table();
   all_blocs_are_lock = true;
   for (unsigned int i = 0; i < game_on.get_vecteur_blocs().size(); i++)
   {
