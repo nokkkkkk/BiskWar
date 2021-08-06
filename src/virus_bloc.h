@@ -3,12 +3,13 @@
 
 #include "ofMain.h"
 #include "blocs.h"
+#include "ofxAssimpModelLoader.h"
 
-    class Std_bloc : public Blocs
+    class Virus_bloc : public Blocs
     {
     public: //FONCTIONS PUBLIQUES
-        Std_bloc();
-        void setup(bool p_block_depart = false);
+        Virus_bloc();
+        void setup(bool p_block_depart = true);
         void show_obj();
         virtual const ofVec2f get_pos_on_grid() const;
         bool get_bloc_lock() const;
@@ -23,6 +24,7 @@
         //ATTRIBUTS PRIVÉS
         ofVec2f m_pos_on_grid;
         ofVec3f m_pos;
+        ofxAssimpModelLoader m_virus;
         ofVec3f m_ambiant_color;
         ofColor m_fill_color;
         ofColor m_line_color;

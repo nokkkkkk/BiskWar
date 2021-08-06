@@ -1,15 +1,15 @@
 
-#include "std_bloc.h"
+#include "virus_bloc.h"
 #include <math.h>
-  Std_bloc::Std_bloc() : Blocs()
+  Virus_bloc::Virus_bloc() : Blocs()
   {
   }
-  void Std_bloc::setup(bool p_block_depart)
+  void Virus_bloc::setup(bool p_block_depart)
   {
-
     m_close_true = false; //Est-ce que on doit detruire l'objet ?
     m_block_lock = p_block_depart;
     m_block_is_virus = p_block_depart;
+    m_virus.loadModel("BW.obj");
     m_bloc_size = 25;
     m_line_size = 1;
     m_pos.x = -25;
@@ -77,7 +77,7 @@
 
   }
 
-  void Std_bloc::show_obj()
+  void Virus_bloc::show_obj()
   {
 
     ofEnableLighting();
@@ -95,7 +95,8 @@
     m_texture.bind();
 
     ofFill();
-    ofDrawSphere(m_pos,m_bloc_size);
+    // ofDrawSphere(m_pos,m_bloc_size);
+    m_virus.drawFaces();
 
     m_texture.unbind();
     m_shader.end();
@@ -105,7 +106,7 @@
 
   }
 
- void Std_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
+ void Virus_bloc::move_obj(int p_x, int p_y, int p_z, int p_button)
   {
     m_pos.y += p_y;
     m_pos.x += p_x;
@@ -113,31 +114,31 @@
     m_pos_on_grid.y = (int)(m_pos.y / 50);
 
   }
-  ofVec2f const Std_bloc::get_pos_on_grid() const 
+  ofVec2f const Virus_bloc::get_pos_on_grid() const 
   {
       return m_pos_on_grid;
   }
-  void Std_bloc::set_bloc_lock(bool p_cond) 
+  void Virus_bloc::set_bloc_lock(bool p_cond) 
   {
     m_block_lock = p_cond;
   }
-  bool Std_bloc::get_bloc_lock() const
+  bool Virus_bloc::get_bloc_lock() const
   {
     return m_block_lock;
   }
-  char Std_bloc::get_bloc_char() const
+  char Virus_bloc::get_bloc_char() const
   {
       return m_bloc_char;
   }
-  void Std_bloc::set_bloc_char(char p_char_type) 
+  void Virus_bloc::set_bloc_char(char p_char_type) 
   {
     m_bloc_char = p_char_type;
   }
-    bool Std_bloc::get_bloc_virus() const 
+    bool Virus_bloc::get_bloc_virus() const 
     {
         return m_block_is_virus;
     }
-    void Std_bloc::set_bloc_virus(bool p_cond) 
+    void Virus_bloc::set_bloc_virus(bool p_cond) 
     {
       m_block_is_virus = p_cond;
     }

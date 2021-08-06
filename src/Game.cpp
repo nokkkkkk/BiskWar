@@ -8,12 +8,12 @@ Game::Game()
 {
 }
 
-Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs) // coplien Copy and swap -- DEsgin 
+Game::Game(int p_nb_blocs_to_load, int p_nb_joueurs)
 {
     m_size_grid_slot = 50;
     for (unsigned int i = 0; i < p_nb_blocs_to_load; i++)
         {
-        m_blocs.push_back(new Std_bloc);
+        m_blocs.push_back(new Virus_bloc);
         m_blocs.back()->setup(true);
         }
     for (unsigned int i = 0; i < nb_lignes; i++)
@@ -143,7 +143,6 @@ void Game::verify_who_fall()
         {
             int x = m_blocs[i]->get_pos_on_grid().x;
             int y = m_blocs[i]->get_pos_on_grid().y + 1;
-            ofLog() << m_blocs[i]->get_bloc_virus();
             if (m_etat_table[x][y]   == '.')
             {
                 m_blocs[i]->set_bloc_lock(false);
@@ -178,9 +177,7 @@ void Game::verify_all_grid_clear()
                             for (unsigned int z = 0; z <= nb_blocs_lign; z++)
                             {
                                 indice_to_clear.push_back(ofVec2f((y + z), i));
-                                ofLog() << indice_to_clear.back(); 
                             }
-                            ofLog() << "4 blocs ou plus en lignes Horizontale : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
                             y = y + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
                         }
                         nb_blocs_lign = 0;
@@ -198,7 +195,6 @@ void Game::verify_all_grid_clear()
         {
             if (m_etat_table[i][y] != '.')
             {
-                ofLog() << i + nb_blocs_lign << "<=" << nb_blocs_lign - 1;
                 while (get_out == false && ((i + nb_blocs_lign) <= (nb_lignes - 1)))
                 {
                     if (m_etat_table[i][y] == m_etat_table[i + 1 + nb_blocs_lign][y])
@@ -213,9 +209,7 @@ void Game::verify_all_grid_clear()
                             for (unsigned int z = 0; z <= nb_blocs_lign; z++)
                             {
                                 indice_to_clear.push_back(ofVec2f(y, (i + z)));
-                                ofLog() << indice_to_clear.back(); 
                             }
-                            ofLog() << "4 blocs ou plus en lignes Verticales : " << "(" << y << "," << i << ") --> " <<"(" << (y + nb_blocs_lign) << "," << i << ")";
                             i = i + nb_blocs_lign; // ne pas vérifer les blocs déja tagués
                         }
                         nb_blocs_lign = 0;
@@ -228,9 +222,6 @@ void Game::verify_all_grid_clear()
     }
     for (unsigned int i = 0; i < indice_to_clear.size(); i++) // Parcour de tous les indices à supprimer dans le tableau d'état et dans le vector d'objet 
     {
-        ofLog() << i;
-        ofLog() << indice_to_clear[i].x;
-        ofLog() << indice_to_clear[i].y;
         set_block_from_pos_in_table(indice_to_clear[i].x, indice_to_clear[i].y, '.'); //On met le tableau d'état a jour.
         for (unsigned int y = 0; y < m_blocs.size(); y++)
         {
@@ -262,7 +253,7 @@ vector<Blocs *> Game::get_vecteur_blocs()
 }
 void Game::add_bloc(int p_type)
 {
-    m_blocs.push_back(Factoblocs::get_bloc(1));
+    m_blocs.push_back(Factoblocs::get_bloc(p_type));
     m_blocs.back()->setup(false);
     m_blocs.size();
 }
@@ -276,7 +267,6 @@ void Game::show_state_table()
         {
             ligne += m_etat_table[i][y];
         }
-        ofLog() << ligne;
         ligne = "";
     }
 }

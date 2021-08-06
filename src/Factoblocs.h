@@ -10,6 +10,7 @@
 
 #include "ofMain.h"
 #include "std_bloc.h"
+#include "virus_bloc.h"
 
 
 class Factoblocs
