@@ -54,7 +54,7 @@
       m_fill_color = ofColor(0, 0, 0);
       m_line_color = ofColor(50, 155, 50);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/terre.jpg");
+      ofLoadImage(m_texture,"../../data/textures/bleu.jpg");
       break;
     case 5:
       m_bloc_char = 'P';

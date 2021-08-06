@@ -19,6 +19,7 @@
     m_pos.z = 0;
     virus_light.setPosition(0, 0, -100);
     virus_light.lookAt(ofVec3f(0, 0, 0));
+    m_speed_rotation = (ofRandom(10)) + 1;
     // int tempo_int_char = 0;
     int tempo_int_char = ofRandom(6);
     switch (tempo_int_char)
@@ -88,12 +89,12 @@
 
     ofEnableLighting();
     
-    m_virus.setRotation(1, ofGetFrameNum() * 1, 0.0f, 1.0f, 0.0f);
+    m_virus.setRotation(1, ofGetFrameNum() * m_speed_rotation / 5, 0.0f, 1.0f, 0.0f);
     m_virus.setPosition(
       m_pos.x,
       m_pos.y,
       m_pos.z);
-    m_virus.setScale(0.0800, 0.0800, 0.0800);
+    m_virus.setScale(0.0700, 0.0700, 0.0700);
     
     virus_light.setPosition( // repositionnement de la lumière en fonction de la postion du virus pour un meilleur éclairage.
       m_pos.x,

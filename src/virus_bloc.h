@@ -31,6 +31,7 @@
         ofShader m_shader;
         ofTexture m_texture;
         ofLight virus_light;
+        int m_speed_rotation;
         int m_line_size;
         int m_bloc_size;
         bool m_block_lock;
