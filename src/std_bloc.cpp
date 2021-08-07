@@ -26,28 +26,28 @@
       m_fill_color = ofColor(255, 0, 0);
       m_line_color = ofColor(155, 0, 0);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/cailloux.jpg");
+      ofLoadImage(m_texture,"../../data/textures/rouge.jpg");
       break;
     case 1:
       m_bloc_char = 'G';
       m_fill_color = ofColor(0, 255, 0);
       m_line_color = ofColor(0, 155, 0);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/brique.jpg");
+      ofLoadImage(m_texture,"../../data/textures/jaune.jpg");
       break;
     case 2:
       m_bloc_char = 'B';
       m_fill_color = ofColor(0, 0, 255);
       m_line_color = ofColor(0, 0, 150);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/bois.jpg");
+      ofLoadImage(m_texture,"../../data/textures/magenta.jpg");
       break;
     case 3:
       m_bloc_char = 'Y';
       m_fill_color = ofColor(100, 100, 100);
       m_line_color = ofColor(50, 50, 50);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/planche.jpg");
+      ofLoadImage(m_texture,"../../data/textures/gris.jpg");
       break;
     case 4:
       m_bloc_char = 'V';
@@ -61,7 +61,7 @@
       m_fill_color = ofColor(0, 0, 0);
       m_line_color = ofColor(50, 155, 50);
       m_ambiant_color = ofVec3f(0.0f, 0.0f, 0.0f);
-      ofLoadImage(m_texture,"../../data/textures/terre.jpg");
+      ofLoadImage(m_texture,"../../data/textures/vert.jpg");
       break;
     
     default: //Faut pas que ca arrive :)
