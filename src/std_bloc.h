@@ -18,6 +18,7 @@
         virtual void set_bloc_char(char p_char_type);
         virtual bool get_bloc_virus() const;
         virtual void set_bloc_virus(bool p_cond);
+        virtual void rotate_obj();
 
     private:
         //ATTRIBUTS PRIVÉS

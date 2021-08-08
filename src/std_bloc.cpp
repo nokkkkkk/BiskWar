@@ -120,6 +120,10 @@
     m_pos_on_grid.y = (int)(m_pos.y / 50);
 
   }
+ void Std_bloc::rotate_obj()
+  {
+    this->move_obj(50,50,0,0);
+  }
   ofVec2f const Std_bloc::get_pos_on_grid() const 
   {
       return m_pos_on_grid;

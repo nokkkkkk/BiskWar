@@ -82,7 +82,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
     bool bloc_side_can_move = false; //on part avec l'idée qu'on ne peut pas bouger...
     if (p_x < 0) // Si on bouge vers la droite...
     {
-        //Si aucun bloc ne se trouve à droite, on peut bouger. 
+        //Si aucun bloc ne se trouve à droite, on peut bouger si.... 
         if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y) == '.' && m_blocs.back()->get_pos_on_grid().x + 1 < nb_col )
         {
             //Si aucun bloc ne se trouve à droite du premier des 2 blocs, on peut bouger. 
@@ -99,7 +99,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
     }
     if (p_x > 0) // Si on bouge vers la gauche...
     {
-        //Si aucun bloc ne se trouve à gauche, on peut bouger. 
+        //Si aucun bloc ne se trouve à gauche, on peut bouger si....  
         if (get_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y) == '.'  && m_blocs.back()->get_pos_on_grid().x > 0)
         {
             //Si aucun bloc ne se trouve à droite du premier des 2 blocs, on peut bouger. 
@@ -120,6 +120,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
         //Si nous ne sommes pas au bord du tableau
         if ((m_blocs.back()->get_pos_on_grid().x != 0 && p_x > 0) || (m_blocs.back()->get_pos_on_grid().x != (nb_col - 1) && p_x < 0))
         {
+            // Si tous les conditions sont respectées, on peux alors bouger les 2 blocs.
             if(bloc_side_can_move)
             {
                 m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);

@@ -30,7 +30,7 @@
         virtual void set_bloc_char(char p_char_type);
 
         virtual void move_obj(int p_x, int p_y, int p_z, int p_button);
-        virtual void rotate_obj(int which, float angle, float rot_x, float rot_y, float r_z);
+        virtual void rotate_obj();
 
 
 

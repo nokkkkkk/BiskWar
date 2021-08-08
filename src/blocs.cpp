@@ -15,7 +15,7 @@
     void Blocs::move_obj(int p_x, int p_y, int p_z, int p_button)
     {
     }
-    void Blocs::rotate_obj(int which, float angle, float rot_x, float rot_y, float r_z)
+    void Blocs::rotate_obj()
     {
     }
     bool Blocs::get_bloc_lock() const 

@@ -102,7 +102,7 @@ void Application::keyPressed(int key)
     game_on.move_obj(-50, 0, 0, 0);
     break;
   case ofKey::OF_KEY_UP:
-    game_on.get_vecteur_blocs().back()->rotate_obj(2, 90, 0.0f, 0.0f, 1.0f);
+    game_on.get_vecteur_blocs().back()->rotate_obj();
     break;
   case ofKey::OF_KEY_DOWN:
     game_on.move_obj(0, 50, 0, 0);
