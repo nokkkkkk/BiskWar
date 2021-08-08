@@ -88,6 +88,9 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             bloc_side_can_move = true;
             set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x + 1, m_blocs.back()->get_pos_on_grid().y,m_blocs.back()->get_bloc_char());
             set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y, '.');
+            //move du premier des deux blocs aussi à faire
+            set_block_from_pos_in_table(m_blocs.end()[-2]->get_pos_on_grid().x + 1, m_blocs.end()[-2]->get_pos_on_grid().y,m_blocs.end()[-2]->get_bloc_char());
+            set_block_from_pos_in_table(m_blocs.end()[-2]->get_pos_on_grid().x, m_blocs.end()[-2]->get_pos_on_grid().y, '.');
         }
     }
     if (p_x > 0) // Si on bouge vers la gauche...
@@ -98,6 +101,9 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             bloc_side_can_move = true;
             set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x - 1, m_blocs.back()->get_pos_on_grid().y,m_blocs.back()->get_bloc_char());
             set_block_from_pos_in_table(m_blocs.back()->get_pos_on_grid().x, m_blocs.back()->get_pos_on_grid().y, '.');
+            //move du premier des deux blocs aussi à faire
+            set_block_from_pos_in_table(m_blocs.end()[-2]->get_pos_on_grid().x - 1, m_blocs.end()[-2]->get_pos_on_grid().y,m_blocs.end()[-2]->get_bloc_char());
+            set_block_from_pos_in_table(m_blocs.end()[-2]->get_pos_on_grid().x, m_blocs.end()[-2]->get_pos_on_grid().y, '.');
         }
     }
 
@@ -109,6 +115,7 @@ void Game::move_obj(int p_x, int p_y, int p_z, int p_button)
             if(bloc_side_can_move)
             {
                 m_blocs.back()->move_obj(p_x, p_y, p_z, p_button);
+                m_blocs.end()[-2]->move_obj(p_x, p_y, p_z, p_button);
 
             }
         }
@@ -253,6 +260,8 @@ vector<Blocs *> Game::get_vecteur_blocs()
 }
 void Game::add_bloc(int p_type)
 {
+    m_blocs.push_back(Factoblocs::get_bloc(p_type));
+    m_blocs.back()->setup(false);
     m_blocs.push_back(Factoblocs::get_bloc(p_type));
     m_blocs.back()->setup(false);
     m_blocs.size();
